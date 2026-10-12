@@ -1,0 +1,13 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow"><meta name="referrer" content="no-referrer"><title>Etsy connection</title>
+<style>body{font-family:system-ui,sans-serif;max-width:720px;margin:40px auto;padding:0 16px;color:#13294b}
+textarea{width:100%;height:110px;font-size:20px;font-family:monospace;padding:10px;border:2px solid #14a39a;border-radius:8px}
+button{font-size:20px;padding:12px 24px;margin-top:12px;background:#14a39a;color:#fff;border:0;border-radius:8px;cursor:pointer}</style></head>
+<body><h1>Etsy connection</h1><p id="msg">Copy everything in the box below and paste it into the chat.</p>
+<textarea id="out" readonly></textarea><br><button id="b">Copy</button>
+<script>var p=new URLSearchParams(location.search),o=document.getElementById('out');
+if(p.get('error')){o.value='error='+p.get('error')+'\n'+(p.get('error_description')||'');}
+else if(p.get('code')){o.value='code='+p.get('code')+'\nstate='+(p.get('state')||'');}
+else{document.getElementById('msg').textContent='No code found in this address.';}
+document.getElementById('b').onclick=function(){o.select();navigator.clipboard.writeText(o.value).then(function(){document.getElementById('b').textContent='Copied ✓'});};</script>
+</body></html>
