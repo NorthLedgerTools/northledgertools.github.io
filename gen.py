@@ -5,7 +5,7 @@ def faq_ld(faq): return {"@type":"FAQPage","mainEntity":[{"@type":"Question","na
 def app_ld(name,url,desc,cat="FinanceApplication",lang="en-CA"):
     return {"@type":"WebApplication","name":name,"url":url,"description":desc,"applicationCategory":cat,"operatingSystem":"Any (web browser)","inLanguage":lang,
             "isAccessibleForFree":True,"offers":{"@type":"Offer","price":"0","priceCurrency":"CAD"},"publisher":{"@type":"Organization","name":BRAND,"url":BASE}}
-def page(path,title,desc,body,lang="en",ld=None,alt=None,script=""):
+def page(path,title,desc,body,lang="en",ld=None,alt=None,script="",extra=""):
     url=BASE+path; L="fr-CA" if lang=="fr" else "en-CA"
     hl="".join(f'<link rel="alternate" hreflang="{h}" href="{BASE+p}">' for h,p in (alt or []))
     if alt: hl+=f'<link rel="alternate" hreflang="x-default" href="{BASE+[p for h,p in alt if h.startswith("en")][0]}">'
@@ -16,7 +16,7 @@ def page(path,title,desc,body,lang="en",ld=None,alt=None,script=""):
     doc=f'''<!doctype html><html lang="{L}"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>{html.escape(title)}</title><meta name="description" content="{html.escape(desc)}"><link rel="canonical" href="{url}">{hl}
 <meta property="og:title" content="{html.escape(title)}"><meta property="og:description" content="{html.escape(desc)}"><meta property="og:url" content="{url}"><meta property="og:type" content="website"><meta property="og:site_name" content="{BRAND}">
-<meta name="theme-color" content="#1F3A5F"><link rel="stylesheet" href="/assets/style.css"><link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">{ldj}</head>
+<meta name="theme-color" content="#1F3A5F">{extra}<link rel="stylesheet" href="/assets/style.css"><link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">{ldj}</head>
 <body><header class="top"><div class="w"><a class="brand" href="/">North<span>Ledger</span> Tools</a>{nav}</div></header><main class="w">{body}</main>
 <footer><div class="w">{foot} · <a href="/privacy/">{"Confidentialité" if lang=="fr" else "Privacy"}</a> · {"Mis à jour le" if lang=="fr" else "Updated"} {UPD}</div></footer>
 <script src="/assets/engine.js"></script>{script}</body></html>'''
@@ -205,7 +205,7 @@ body=f'''<h1>Free, accurate Canadian money calculators</h1><p class="lede">Simpl
 <p class="disc">These tools give estimates, not tax or financial advice. The Canada Revenue Agency and Revenu Québec are the official sources for your own situation.</p>'''
 page("","NorthLedger Tools: Free Canadian TFSA and Self-Employed Tax Calculators 2026",
  "Free, ad-free calculators for Canadians: TFSA contribution room 2026, self-employed tax for Ontario, BC, Alberta and Quebec, plus homebrew calculators.",
- body,ld=[{"@type":"WebSite","name":BRAND,"url":BASE,"inLanguage":"en-CA"},{"@type":"Organization","name":BRAND,"url":BASE}])
+ body,extra='<meta name="google-site-verification" content="bgydH5GCEgFakbRT0gUBnsEbqirokCbZlFyL7epcgsk" />',ld=[{"@type":"WebSite","name":BRAND,"url":BASE,"inLanguage":"en-CA"},{"@type":"Organization","name":BRAND,"url":BASE}])
 body='''<h1>Privacy policy</h1><p><b>Effective October 12, 2026.</b></p>
 <p>NorthLedger Tools ("we") runs this website as a set of static pages hosted on GitHub Pages.</p>
 <h2>What we collect</h2><p>Nothing. The calculators run entirely in your web browser. The numbers you type are not sent to us or stored anywhere. We do not use cookies, analytics, advertising, tracking pixels or third-party scripts.</p>
