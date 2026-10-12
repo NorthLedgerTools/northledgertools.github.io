@@ -1,5 +1,5 @@
 import json,os,html,datetime
-BASE="https://xephaestus.github.io/"; G="https://therrienmathieu.gumroad.com/l/"
+BASE="https://northledgertools.github.io/"; G="https://therrienmathieu.gumroad.com/l/"
 UPD="2026-10-12"; BRAND="NorthLedger Tools"
 def faq_ld(faq): return {"@type":"FAQPage","mainEntity":[{"@type":"Question","name":q,"acceptedAnswer":{"@type":"Answer","text":a}} for q,a in faq]}
 def app_ld(name,url,desc,cat="FinanceApplication",lang="en-CA"):

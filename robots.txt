@@ -43,4 +43,4 @@ Allow: /
 User-agent: *
 Allow: /
 
-Sitemap: https://xephaestus.github.io/sitemap.xml
+Sitemap: https://northledgertools.github.io/sitemap.xml
