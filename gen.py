@@ -1,5 +1,5 @@
 import json,os,html,datetime
-BASE="https://northledgertools.github.io/"; G="https://therrienmathieu.gumroad.com/l/"
+BASE="https://northledgertools.github.io/"; G="https://northledgertools.gumroad.com/l/"
 UPD="2026-10-12"; BRAND="NorthLedger Tools"
 def faq_ld(faq): return {"@type":"FAQPage","mainEntity":[{"@type":"Question","name":q,"acceptedAnswer":{"@type":"Answer","text":a}} for q,a in faq]}
 def app_ld(name,url,desc,cat="FinanceApplication",lang="en-CA"):
@@ -201,7 +201,7 @@ body=f'''<h1>Free, accurate Canadian money calculators</h1><p class="lede">Simpl
 <a href="/impot-travailleur-autonome-quebec/" hreflang="fr-CA"><b>Impôt travailleur autonome Québec 2026</b>Impôt, RRQ, RQAP et FSS.</a>
 <a href="/quebec-self-employed-tax-calculator/"><b>Quebec self-employed tax 2026 (English)</b>Quebec + federal tax, QPP, QPIP and FSS.</a>
 <a href="/homebrew-calculator/"><b>Homebrew: ABV, IBU, priming</b>Hobby brewing calculators in metric or US units.</a></div>
-<h2>About</h2><p>NorthLedger Tools makes calculators and spreadsheets that show their work. Each free calculator here uses the same formulas as the matching NorthLedger spreadsheet, which adds year-round logging and tracking. You can find them on <a href="https://therrienmathieu.gumroad.com/">our Gumroad store</a>. Rates are updated when governments publish new figures, normally each January.</p>
+<h2>About</h2><p>NorthLedger Tools makes calculators and spreadsheets that show their work. Each free calculator here uses the same formulas as the matching NorthLedger spreadsheet, which adds year-round logging and tracking. You can find them on <a href="https://northledgertools.gumroad.com/">our Gumroad store</a>. Rates are updated when governments publish new figures, normally each January.</p>
 <p class="disc">These tools give estimates, not tax or financial advice. The Canada Revenue Agency and Revenu Québec are the official sources for your own situation.</p>'''
 page("","NorthLedger Tools: Free Canadian TFSA and Self-Employed Tax Calculators 2026",
  "Free, ad-free calculators for Canadians: TFSA contribution room 2026, self-employed tax for Ontario, BC, Alberta and Quebec, plus homebrew calculators.",

@@ -9,10 +9,10 @@
 - [Homebrew calculator](https://northledgertools.github.io/homebrew-calculator/): ABV (OG−FG)×131.25, IBU (Tinseth), SRM (Morey), priming sugar.
 
 ## Paid spreadsheets (Excel / Google Sheets / LibreOffice)
-- [Canadian Contribution Room Tracker 2026 (TFSA, RRSP, FHSA)](https://therrienmathieu.gumroad.com/l/pdxqug): CA$14
-- [Self-Employed Tax Estimator 2026 (ON, BC, AB)](https://therrienmathieu.gumroad.com/l/bblrt): CA$17
-- [Quebec Self-Employed Tax Estimator 2026 (bilingual)](https://therrienmathieu.gumroad.com/l/oymrg): CA$17
-- [Homebrew Recipe & Priming Calculator](https://therrienmathieu.gumroad.com/l/vglxwa): CA$9
+- [Canadian Contribution Room Tracker 2026 (TFSA, RRSP, FHSA)](https://northledgertools.gumroad.com/l/pdxqug): CA$14
+- [Self-Employed Tax Estimator 2026 (ON, BC, AB)](https://northledgertools.gumroad.com/l/bblrt): CA$17
+- [Quebec Self-Employed Tax Estimator 2026 (bilingual)](https://northledgertools.gumroad.com/l/oymrg): CA$17
+- [Homebrew Recipe & Priming Calculator](https://northledgertools.gumroad.com/l/vglxwa): CA$9
 
 ## Policies
 - [Privacy](https://northledgertools.github.io/privacy/): no cookies, analytics or data collection.
