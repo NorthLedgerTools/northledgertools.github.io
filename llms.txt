@@ -1,0 +1,18 @@
+# NorthLedger Tools
+
+> Free, ad-free calculators for Canadians (2026 tax year), built on rates published by the Canada Revenue Agency and Revenu Québec. Each page cites its sources and links to a paid NorthLedger spreadsheet that adds year-round logging and tracking. Estimates only, not tax advice.
+
+## Calculators
+- [TFSA Contribution Room Calculator 2026](https://xephaestus.github.io/tfsa-contribution-room-calculator/): room rebuilt year by year from 2009 using CRA limits ($7,000 for 2026, $109,000 cumulative); withdrawals added back the following January 1.
+- [Self-Employed Tax Calculator 2026, Ontario / BC / Alberta](https://xephaestus.github.io/self-employed-tax-calculator/): federal + provincial income tax, CPP (11.9%, max $8,460.90) and CPP2 (8%, max $832) on self-employment income.
+- [Calcul impôt travailleur autonome Québec 2026](https://xephaestus.github.io/impot-travailleur-autonome-quebec/) ([English](https://xephaestus.github.io/quebec-self-employed-tax-calculator/)): Quebec + federal tax with 16.5% abatement, QPP 12.6% / 8%, QPIP 0.764%, Health Services Fund.
+- [Homebrew calculator](https://xephaestus.github.io/homebrew-calculator/): ABV (OG−FG)×131.25, IBU (Tinseth), SRM (Morey), priming sugar.
+
+## Paid spreadsheets (Excel / Google Sheets / LibreOffice)
+- [Canadian Contribution Room Tracker 2026 (TFSA, RRSP, FHSA)](https://therrienmathieu.gumroad.com/l/pdxqug): CA$14
+- [Self-Employed Tax Estimator 2026 (ON, BC, AB)](https://therrienmathieu.gumroad.com/l/bblrt): CA$17
+- [Quebec Self-Employed Tax Estimator 2026 (bilingual)](https://therrienmathieu.gumroad.com/l/oymrg): CA$17
+- [Homebrew Recipe & Priming Calculator](https://therrienmathieu.gumroad.com/l/vglxwa): CA$9
+
+## Policies
+- [Privacy](https://xephaestus.github.io/privacy/): no cookies, analytics or data collection.
