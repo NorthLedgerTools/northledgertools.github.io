@@ -16,3 +16,4 @@ th{background:var(--navy);color:#fff;font-weight:600}.scroll{overflow-x:auto}tr.
 .tools{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1rem}.tools a{display:block;background:#fff;border:1px solid var(--line);border-top:4px solid var(--teal);border-radius:8px;padding:1rem;text-decoration:none;color:var(--ink)}
 .tools a b{color:var(--navy);display:block;margin-bottom:.3rem}.row2{display:grid;grid-template-columns:2fr 1fr 1fr 1fr 1fr;gap:.4rem;margin:.25rem 0}.row2 input,.row2 select{padding:.4rem}
 @media(max-width:560px){nav a{margin:0 .7rem 0 0}.row2{grid-template-columns:1fr 1fr}}
+.cta a.alt{color:#fff;margin-left:.8rem;font-size:.95rem;text-decoration:underline;white-space:nowrap}
