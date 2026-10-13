@@ -1,6 +1,6 @@
 import json,os,html,datetime
 BASE="https://northledgertools.github.io/"; G="https://northledgertools.gumroad.com/l/"
-UPD="2026-10-12"; BRAND="NorthLedger Tools"
+UPD="2026-10-13"; BRAND="NorthLedger Tools"
 def faq_ld(faq): return {"@type":"FAQPage","mainEntity":[{"@type":"Question","name":q,"acceptedAnswer":{"@type":"Answer","text":a}} for q,a in faq]}
 def app_ld(name,url,desc,cat="FinanceApplication",lang="en-CA"):
     return {"@type":"WebApplication","name":name,"url":url,"description":desc,"applicationCategory":cat,"operatingSystem":"Any (web browser)","inLanguage":lang,
@@ -10,7 +10,7 @@ def page(path,title,desc,body,lang="en",ld=None,alt=None,script="",extra=""):
     hl="".join(f'<link rel="alternate" hreflang="{h}" href="{BASE+p}">' for h,p in (alt or []))
     if alt: hl+=f'<link rel="alternate" hreflang="x-default" href="{BASE+[p for h,p in alt if h.startswith("en")][0]}">'
     ldj=f'<script type="application/ld+json">{json.dumps({"@context":"https://schema.org","@graph":ld},ensure_ascii=False)}</script>' if ld else ""
-    nav=('<nav><a href="/tfsa-contribution-room-calculator/">TFSA</a><a href="/self-employed-tax-calculator/">Self-employed tax</a><a href="/impot-travailleur-autonome-quebec/">Québec</a><a href="/homebrew-calculator/">Homebrew</a></nav>')
+    nav=('<nav><a href="/tfsa-contribution-room-calculator/">TFSA</a><a href="/fhsa-contribution-room-calculator/">FHSA</a><a href="/self-employed-tax-calculator/">Self-employed tax</a><a href="/impot-travailleur-autonome-quebec/">Québec</a><a href="/homebrew-calculator/">Homebrew</a></nav>')
     foot=("Fait au Canada. Aucun suivi, aucun témoin, aucune publicité. Les calculs se font dans votre navigateur." if lang=="fr" else
           "Made in Canada. No tracking, no cookies, no ads. Calculations run in your browser; nothing you type is sent anywhere.")
     doc=f'''<!doctype html><html lang="{L}"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
@@ -194,9 +194,80 @@ page("homebrew-calculator/","Homebrew Calculator: ABV, IBU, OG/FG & Priming Suga
  "Free homebrew calculators: ABV from OG/FG, recipe OG/FG/IBU (Tinseth)/SRM, and bottle priming sugar in grams for litres or gallons.",
  body,ld=[app_ld("Homebrew Calculator: ABV, IBU and Priming Sugar",BASE+"homebrew-calculator/","Free brewing calculators for ABV, recipe gravity, IBU, colour and priming sugar.","UtilitiesApplication"),faq_ld(faq)],script=js)
 
+# ---------- FHSA EN + FR ----------
+FSRC=[("CRA: Participating in your FHSAs (participation room and carryforward)","https://www.canada.ca/en/revenue-agency/services/tax/individuals/topics/first-home-savings-account/contributing-your-fhsa.html"),
+("CRA: First Home Savings Account (FHSA) overview","https://www.canada.ca/en/revenue-agency/services/tax/individuals/topics/first-home-savings-account.html"),
+("CRA: What happens if you contribute or transfer too much to your FHSAs","https://www.canada.ca/en/revenue-agency/services/tax/individuals/topics/first-home-savings-account/contributing-your-fhsa/excess-fhsa-amount.html")]
+FT={"en":dict(path="fhsa-contribution-room-calculator/",title="FHSA Contribution Room Calculator 2026 (Carry-Forward Included) | NorthLedger Tools",
+ desc="Free FHSA participation room calculator for 2026: enter the year you opened your FHSA and what you put in each year to see your room, carry-forward and lifetime room left.",
+ h1="FHSA Contribution Room Calculator 2026",
+ lede="Work out how much you can put in your First Home Savings Account this year. Enter the year you opened your first FHSA and what you contributed (or transferred from an RRSP) each year; the calculator applies the CRA's carry-forward and $40,000 lifetime rules year by year.",
+ oy="Year you opened your first FHSA",cl="Contributions + RRSP transfers by year",ch="(totals across all your FHSAs; leave blank if none)",yr="Year",ct="Contributions + transfers",
+ btn="Calculate my FHSA room",
+ cta=f'<div class="cta"><b>Track FHSA, TFSA and RRSP in one sheet: Canadian Contribution Room Tracker 2026</b><p>This free calculator works from yearly totals. The spreadsheet version (Excel / Google Sheets) lets you:</p><ul><li>log every FHSA deposit and RRSP transfer by date and institution</li><li>see FHSA, TFSA and RRSP room and over-contribution warnings on one summary page</li><li>track TFSA room from 2009 and RRSP deduction room for the Mar 1, 2027 deadline</li><li>get a blank file plus a filled example, works offline</li></ul><a class="btn" href="{G}pdxqug">Get the tracker (CA$14) →</a> <a class="alt" href="https://www.etsy.com/listing/4594000039" rel="noopener">or buy on Etsy</a></div>',
+ how="<h2>How the CRA counts FHSA room</h2><p>In the year you open your first FHSA, your participation room is $8,000. Each later year you get a new $8,000, plus a carry-forward of whatever you did not use the year before, but the carry-forward is capped at $8,000. That means the most you can ever put in during one year is $16,000, and only if you skipped the previous year. Room only starts building once you open an account: years before you opened one give you nothing. Your total contributions and RRSP transfers over your lifetime can't exceed $40,000.</p><p>Investment growth inside the FHSA does not use room, and taking money out (for a home or otherwise) does not give room back. Transfers from your RRSP use the same room as cash contributions, even though they are not deductible.</p><p>Also saving in a TFSA? Use the <a href=\"/tfsa-contribution-room-calculator/\">TFSA room calculator</a>. <a href=\"/calcul-droits-celiapp/\">Version française (CELIAPP)</a>.</p>",
+ faq=[("What is the FHSA limit for 2026?","The annual FHSA limit is $8,000 and the lifetime limit is $40,000. These amounts are set in law and are not indexed to inflation."),
+ ("How does FHSA carry-forward work?","If you contribute less than your room in a year, the unused part (up to $8,000) carries forward to the next year only. For example, if you opened an FHSA in 2025 and contributed $3,000, you carry $5,000 into 2026, giving you $13,000 of room for 2026."),
+ ("Can I carry forward FHSA room from before I opened an account?","No. Participation room only starts in the year you open your first FHSA. If you are eligible but have not opened one yet, opening one before December 31 starts your $8,000 for this year, and anything unused carries forward to next year."),
+ ("What is the maximum I can put in an FHSA in one year?","$16,000: the $8,000 annual amount plus a maximum $8,000 carry-forward. In the year you open your first FHSA the maximum is $8,000."),
+ ("Do RRSP transfers to an FHSA count against my room?","Yes. Direct transfers from your RRSP to your FHSA use your FHSA participation room the same way contributions do, but you can't deduct them."),
+ ("Can contributions made in January or February count for the previous year?","No. Unlike an RRSP, FHSA contributions count for the calendar year in which you make them, including those made in the first 60 days of the year."),
+ ("What happens if I over-contribute to my FHSA?","The CRA charges a tax of 1% per month on the highest excess FHSA amount in each month it remains. You can remove the excess with a designated withdrawal or a designated transfer to your RRSP (Form RC727)."),
+ ("Who can open an FHSA?","You must be a resident of Canada, at least 18 years old and no older than 71 at the end of the year, and a first-time home buyer, which generally means you did not live in a home that you or your spouse or common-law partner owned in the current year or the previous four calendar years."),
+ ("How long can I keep an FHSA open?","Your FHSA participation period ends at the earliest of: 15 years after you opened your first FHSA, the end of the year you turn 71, or the end of the year after your first qualifying withdrawal to buy a home.")],
+ fh="Frequently asked questions",sh="Sources",
+ disc="Not tax or financial advice. Uses the CRA participation room rules as of October 13, 2026. It does not handle withdrawals, designated amounts or re-participation room after an over-contribution. Your CRA account and notice of assessment are the official record of your FHSA room; check them before contributing near your limit.",
+ J=dict(bad="Choose the year you opened your first FHSA (2023 or later).",left="FHSA room left for 2026",over="You appear to be over your FHSA room by %X. The CRA charges 1% per month on the excess; check your CRA account and consider a designated withdrawal or transfer (Form RC727).",
+ past="Note: you appear to have been over your room in %Y.",next="If you add nothing more this year, your room for 2027 will be %N (carry-forward capped at $8,000). Lifetime room left after 2026: %L of $40,000.",
+ th=["Year","Carry-forward in","Room for year","Contrib. + transfers","Room left"])),
+"fr":dict(path="calcul-droits-celiapp/",title="Calcul des droits de participation CELIAPP 2026 (report inclus) | NorthLedger Tools",
+ desc="Calculateur gratuit des droits de participation au CELIAPP pour 2026 : entrez l'année d'ouverture et vos cotisations par année pour connaître vos droits, le report et le plafond à vie restant.",
+ h1="Calcul des droits de participation au CELIAPP 2026",
+ lede="Calculez combien vous pouvez verser dans votre compte d'épargne libre d'impôt pour l'achat d'une première propriété (CELIAPP) cette année. Entrez l'année d'ouverture de votre premier CELIAPP et vos cotisations (ou transferts d'un REER) par année; le calcul applique les règles de report et le plafond à vie de 40 000 $ de l'ARC, année par année.",
+ oy="Année d'ouverture de votre premier CELIAPP",cl="Cotisations + transferts d'un REER par année",ch="(total de tous vos CELIAPP; laissez vide s'il n'y en a pas)",yr="Année",ct="Cotisations + transferts",
+ btn="Calculer mes droits CELIAPP",
+ cta=f'<div class="cta"><b>CELIAPP, CELI et REER dans un seul fichier : Canadian Contribution Room Tracker 2026</b><p>Ce calculateur gratuit fonctionne à partir des totaux annuels. Le tableur (Excel / Google Sheets, en anglais) vous permet :</p><ul><li>d\'inscrire chaque dépôt au CELIAPP et transfert d\'un REER, avec la date et l\'institution</li><li>de voir les droits CELIAPP, CELI et REER et les alertes de cotisation excédentaire sur une seule page</li><li>de suivre vos droits CELI depuis 2009 et votre déduction REER jusqu\'au 1er mars 2027</li><li>d\'obtenir un fichier vierge et un exemple rempli, utilisable hors ligne</li></ul><a class="btn" href="{G}pdxqug">Obtenir le tableur (14 $ CA) →</a> <a class="alt" href="https://www.etsy.com/listing/4594000039" rel="noopener">ou sur Etsy</a></div>',
+ how="<h2>Comment l'ARC calcule les droits CELIAPP</h2><p>L'année où vous ouvrez votre premier CELIAPP, vos droits de participation sont de 8 000 $. Chaque année suivante, vous obtenez 8 000 $ de plus, en plus du report de la partie inutilisée de l'année précédente, mais ce report est limité à 8 000 $. Vous pouvez donc verser au maximum 16 000 $ dans une même année, et seulement si vous n'avez rien versé l'année précédente. Les droits ne s'accumulent qu'à partir de l'ouverture du compte. Le total de vos cotisations et transferts de REER à vie ne peut pas dépasser 40 000 $.</p><p>Les revenus de placement dans le CELIAPP n'utilisent pas de droits, et un retrait (pour une maison ou non) ne redonne pas de droits. Les transferts d'un REER utilisent les mêmes droits que les cotisations, même s'ils ne sont pas déductibles.</p><p><a href=\"/fhsa-contribution-room-calculator/\">English version (FHSA)</a>. Travailleur autonome au Québec? Voir le <a href=\"/impot-travailleur-autonome-quebec/\">calcul de l'impôt d'un travailleur autonome</a>.</p>",
+ faq=[("Quel est le plafond du CELIAPP pour 2026?","Le plafond annuel du CELIAPP est de 8 000 $ et le plafond à vie est de 40 000 $. Ces montants sont fixés par la loi et ne sont pas indexés."),
+ ("Comment fonctionne le report des droits CELIAPP?","Si vous versez moins que vos droits dans une année, la partie inutilisée (jusqu'à 8 000 $) est reportée à l'année suivante seulement. Par exemple, si vous avez ouvert un CELIAPP en 2025 et versé 3 000 $, vous reportez 5 000 $ en 2026, pour des droits de 13 000 $ en 2026."),
+ ("Puis-je reporter des droits d'avant l'ouverture de mon compte?","Non. Les droits de participation commencent l'année où vous ouvrez votre premier CELIAPP. Si vous êtes admissible sans avoir de compte, l'ouvrir avant le 31 décembre lance vos 8 000 $ pour cette année, et la partie inutilisée sera reportée."),
+ ("Quel est le maximum que je peux verser en une année?","16 000 $ : les 8 000 $ annuels plus un report maximal de 8 000 $. L'année d'ouverture de votre premier CELIAPP, le maximum est de 8 000 $."),
+ ("Les transferts d'un REER au CELIAPP comptent-ils?","Oui. Les transferts directs d'un REER à un CELIAPP utilisent vos droits de participation comme les cotisations, mais ils ne sont pas déductibles."),
+ ("Une cotisation faite en janvier ou février compte-t-elle pour l'année précédente?","Non. Contrairement au REER, une cotisation au CELIAPP compte pour l'année civile où elle est faite, y compris dans les 60 premiers jours de l'année."),
+ ("Que se passe-t-il si je verse trop dans mon CELIAPP?","L'ARC impose un impôt de 1 % par mois sur le montant excédentaire le plus élevé de chaque mois. Vous pouvez retirer l'excédent par un retrait désigné ou un transfert désigné à votre REER (formulaire RC727)."),
+ ("Qui peut ouvrir un CELIAPP?","Il faut résider au Canada, avoir au moins 18 ans et au plus 71 ans à la fin de l'année, et être acheteur d'une première habitation, c'est-à-dire, en général, ne pas avoir habité un logement dont vous ou votre époux ou conjoint de fait étiez propriétaire pendant l'année ou les quatre années civiles précédentes."),
+ ("Combien de temps un CELIAPP peut-il rester ouvert?","La période de participation prend fin au premier des moments suivants : 15 ans après l'ouverture de votre premier CELIAPP, la fin de l'année de vos 71 ans, ou la fin de l'année suivant votre premier retrait admissible pour acheter une maison.")],
+ fh="Questions fréquentes",sh="Sources (ARC)",
+ disc="Ceci n'est pas un avis fiscal ou financier. Selon les règles de l'ARC sur les droits de participation en date du 13 octobre 2026. Le calcul ne tient pas compte des retraits, des montants désignés ni des droits de participation rétablis après un excédent. Votre compte de l'ARC et votre avis de cotisation font foi de vos droits CELIAPP; vérifiez-les avant de cotiser près de votre limite.",
+ J=dict(bad="Choisissez l'année d'ouverture de votre premier CELIAPP (2023 ou après).",left="Droits CELIAPP restants pour 2026",over="Vous semblez avoir dépassé vos droits de %X. L'ARC impose 1 % par mois sur l'excédent; vérifiez votre compte de l'ARC et envisagez un retrait ou un transfert désigné (formulaire RC727).",
+ past="Note : vous semblez avoir dépassé vos droits en %Y.",next="Si vous ne versez rien d'autre cette année, vos droits pour 2027 seront de %N (report limité à 8 000 $). Plafond à vie restant après 2026 : %L sur 40 000 $.",
+ th=["Année","Report reçu","Droits de l'année","Cotisations + transferts","Droits restants"]))}
+falt=[("en-CA",FT["en"]["path"]),("fr-CA",FT["fr"]["path"])]
+for lg,t in FT.items():
+    opts="".join(f'<option value="{y}"{" selected" if y==2025 else ""}>{y}</option>' for y in range(2023,2027))
+    rows="".join(f'<tr><td>{y}</td><td><input inputmode="decimal" id="c{y}" aria-label="{html.escape(t["ct"])} {y}"></td></tr>' for y in range(2023,2027))
+    body=f'''<h1>{t["h1"]}</h1><p class="lede">{t["lede"]}</p><div class="card"><div class="grid"><div><label for="oy">{t["oy"]}</label><select id="oy">{opts}</select></div></div>
+<label>{t["cl"]} <span class="hint">{t["ch"]}</span></label><div class="scroll"><table><thead><tr><th>{t["yr"]}</th><th>{t["ct"]}</th></tr></thead><tbody>{rows}</tbody></table></div>
+<button id="go">{t["btn"]}</button></div><div id="out" class="card result" hidden></div>{t["cta"]}{t["how"]}{faqhtml(t["faq"],t["fh"])}{src(FSRC,t["sh"])}<p class="disc">{t["disc"]}</p>'''
+    js='<script>'+FMT+(money_fr if lg=="fr" else money_en)+f'const J={json.dumps(t["J"],ensure_ascii=False)};'+'''$("go").onclick=()=>{const oy=parseInt($("oy").value),c={},o=$("out");o.hidden=false;
+if(!(oy>=2023&&oy<=2026)){o.innerHTML="<p class=bad>"+J.bad+"</p>";return;}
+for(let y=oy;y<=2026;y++)c[y]=v("c"+y);
+const R=NL.fhsa(oy,c,2027),last=R[R.length-2],nx=R[R.length-1],shown=R.slice(0,-1),over=shown.find(r=>r.left<0);
+let t="<div class=scroll><table><thead><tr>"+J.th.map(h=>"<th>"+h+"</th>").join("")+"</tr></thead><tbody>";
+for(const r of shown)t+=`<tr${r.left<0?" class=over":""}><td>${r.year}</td><td>${f(r.cf)}</td><td>${f(r.room)}</td><td>${f(r.contrib)}</td><td>${f(r.left)}</td></tr>`;
+t+="</tbody></table></div>";
+o.innerHTML=`<p>${J.left}</p><p class=big>${f(Math.max(0,last.left))}</p>`+(last.left<0?`<p class=bad>${J.over.replace("%X",f(-last.left))}</p>`:"")+
+(over&&last.left>=0?`<p class=bad>${J.past.replace("%Y",over.year)}</p>`:"")+
+(last.left>=0?`<p class=hint>${J.next.replace("%N",f(nx.room)).replace("%L",f(Math.max(0,40000-last.lifetimeUsed)))}</p>`:"")+t;o.scrollIntoView({behavior:"smooth"});};
+for(let y=2023;y<=2026;y++){const i=$("c"+y);i.closest("tr").hidden=false;}
+$("oy").onchange=()=>{const oy=parseInt($("oy").value);for(let y=2023;y<=2026;y++)$("c"+y).closest("tr").hidden=y<oy;};$("oy").onchange();</script>'''
+    page(t["path"],t["title"],t["desc"],body,lang=lg,alt=falt,ld=[app_ld(t["h1"],BASE+t["path"],t["desc"],lang="fr-CA" if lg=="fr" else "en-CA"),faq_ld(t["faq"])],script=js)
+
 # ---------- Home, privacy ----------
-body=f'''<h1>Free, accurate Canadian money calculators</h1><p class="lede">Simple calculators for TFSA room and self-employed tax in Canada, built on rates published by the CRA and Revenu Québec, with the source cited on every page. No sign-up, no tracking, no ads.</p>
+body=f'''<h1>Free, accurate Canadian money calculators</h1><p class="lede">Simple calculators for TFSA and FHSA room and self-employed tax in Canada, built on rates published by the CRA and Revenu Québec, with the source cited on every page. No sign-up, no tracking, no ads.</p>
 <div class="tools"><a href="/tfsa-contribution-room-calculator/"><b>TFSA contribution room 2026</b>Room left this year, rebuilt year by year from 2009.</a>
+<a href="/fhsa-contribution-room-calculator/"><b>FHSA contribution room 2026</b>Room for this year with carry-forward and the $40,000 lifetime limit.</a>
+<a href="/calcul-droits-celiapp/" hreflang="fr-CA"><b>Droits de participation CELIAPP 2026</b>Droits de l'année, report et plafond à vie.</a>
 <a href="/self-employed-tax-calculator/"><b>Self-employed tax 2026: ON · BC · AB</b>Federal + provincial income tax and CPP on freelance income.</a>
 <a href="/impot-travailleur-autonome-quebec/" hreflang="fr-CA"><b>Impôt travailleur autonome Québec 2026</b>Impôt, RRQ, RQAP et FSS.</a>
 <a href="/quebec-self-employed-tax-calculator/"><b>Quebec self-employed tax 2026 (English)</b>Quebec + federal tax, QPP, QPIP and FSS.</a>
@@ -204,7 +275,7 @@ body=f'''<h1>Free, accurate Canadian money calculators</h1><p class="lede">Simpl
 <h2>About</h2><p>NorthLedger Tools makes calculators and spreadsheets that show their work. Each free calculator here uses the same formulas as the matching NorthLedger spreadsheet, which adds year-round logging and tracking. You can find them on <a href="https://northledgertools.gumroad.com/">our Gumroad store</a>. Rates are updated when governments publish new figures, normally each January.</p>
 <p class="disc">These tools give estimates, not tax or financial advice. The Canada Revenue Agency and Revenu Québec are the official sources for your own situation.</p>'''
 page("","NorthLedger Tools: Free Canadian TFSA and Self-Employed Tax Calculators 2026",
- "Free, ad-free calculators for Canadians: TFSA contribution room 2026, self-employed tax for Ontario, BC, Alberta and Quebec, plus homebrew calculators.",
+ "Free, ad-free calculators for Canadians: TFSA and FHSA contribution room 2026, self-employed tax for Ontario, BC, Alberta and Quebec, plus homebrew calculators.",
  body,extra='<meta name="google-site-verification" content="bgydH5GCEgFakbRT0gUBnsEbqirokCbZlFyL7epcgsk" />',ld=[{"@type":"WebSite","name":BRAND,"url":BASE,"inLanguage":"en-CA"},{"@type":"Organization","name":BRAND,"url":BASE}])
 body='''<h1>Privacy policy</h1><p><b>Effective October 12, 2026.</b></p>
 <p>NorthLedger Tools ("we") runs this website as a set of static pages hosted on GitHub Pages.</p>
@@ -215,7 +286,7 @@ body='''<h1>Privacy policy</h1><p><b>Effective October 12, 2026.</b></p>
 <h2>Contact and changes</h2><p>Questions about this policy can be sent through our Gumroad store page. If this policy changes, the updated version will be posted here with a new effective date.</p>'''
 page("privacy/","Privacy Policy | NorthLedger Tools","NorthLedger Tools collects no personal data: calculators run in your browser, with no cookies, analytics or ads.",body)
 # sitemap etc
-paths=["","tfsa-contribution-room-calculator/","self-employed-tax-calculator/","impot-travailleur-autonome-quebec/","quebec-self-employed-tax-calculator/","homebrew-calculator/","privacy/"]
+paths=["","tfsa-contribution-room-calculator/","fhsa-contribution-room-calculator/","calcul-droits-celiapp/","self-employed-tax-calculator/","impot-travailleur-autonome-quebec/","quebec-self-employed-tax-calculator/","homebrew-calculator/","privacy/"]
 open("sitemap.xml","w").write('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'+"".join(f"<url><loc>{BASE+p}</loc><lastmod>{UPD}</lastmod></url>\n" for p in paths)+"</urlset>\n")
 bots=["Googlebot","Bingbot","OAI-SearchBot","ChatGPT-User","GPTBot","PerplexityBot","Perplexity-User","ClaudeBot","Claude-SearchBot","Google-Extended","Applebot","Applebot-Extended","DuckDuckBot","CCBot"]
 open("robots.txt","w").write("".join(f"User-agent: {b}\nAllow: /\n\n" for b in bots)+"User-agent: *\nAllow: /\n\nSitemap: "+BASE+"sitemap.xml\n")
@@ -225,6 +296,7 @@ open("llms.txt","w").write(f"""# NorthLedger Tools
 
 ## Calculators
 - [TFSA Contribution Room Calculator 2026]({BASE}tfsa-contribution-room-calculator/): room rebuilt year by year from 2009 using CRA limits ($7,000 for 2026, $109,000 cumulative); withdrawals added back the following January 1.
+- [FHSA Contribution Room Calculator 2026]({BASE}fhsa-contribution-room-calculator/) ([français : CELIAPP]({BASE}calcul-droits-celiapp/)): participation room year by year from the year the first FHSA was opened; $8,000 annual, carry-forward capped at $8,000 (max $16,000 in a year), $40,000 lifetime; RRSP transfers use room; withdrawals do not restore it.
 - [Self-Employed Tax Calculator 2026, Ontario / BC / Alberta]({BASE}self-employed-tax-calculator/): federal + provincial income tax, CPP (11.9%, max $8,460.90) and CPP2 (8%, max $832) on self-employment income.
 - [Calcul impôt travailleur autonome Québec 2026]({BASE}impot-travailleur-autonome-quebec/) ([English]({BASE}quebec-self-employed-tax-calculator/)): Quebec + federal tax with 16.5% abatement, QPP 12.6% / 8%, QPIP 0.764%, Health Services Fund.
 - [Homebrew calculator]({BASE}homebrew-calculator/): ABV (OG−FG)×131.25, IBU (Tinseth), SRM (Morey), priming sugar.

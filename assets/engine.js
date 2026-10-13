@@ -49,6 +49,16 @@ function tfsa(by,ry,c={},w={}){const rows=[];let prev=null;
   const start=prev?prev.left+prev.wd+lim:lim,ct=+c[y]||0,wd=+w[y]||0,left=start-ct;
   prev={year:y,eligible:!!el,limit:lim,start,contrib:ct,wd,left};rows.push(prev);}
  return rows;}
+/* FHSA participation room (CRA formulas, simplified: no withdrawals, designations or re-participation room).
+   oy: year first FHSA opened (2023+); c: {year: contributions + RRSP transfers}. */
+function fhsa(oy,c={},to=2026){const rows=[];let cf=0,pr=0,cum=0,ePrev=0,ePrev2=0,cPrev=0,cfPrev=0;
+ for(let y=oy;y<=to;y++){
+  if(y===oy){cf=0;pr=8000;}
+  else{cf=m(8000,M(0,8000+cfPrev-ePrev2-cPrev));pr=m(M(0,8000+cf-ePrev),M(0,40000-cum+ePrev));}
+  const ct=+c[y]||0,left=pr-ct,ex=M(0,ePrev+ct-(8000+cf));
+  rows.push({year:y,cf,room:pr,contrib:ct,left,excess:ex,lifetimeUsed:cum+ct});
+  ePrev2=ePrev;ePrev=ex;cPrev=ct;cfPrev=cf;cum+=ct;}
+ return rows;}
 function brew(o){const {vol,vu='L',eff=.72,att=.77,ferm=[],hops=[]}=o;const gal=vu==='L'?vol/3.78541:vol;
  let pts=0,mcu=0;if(gal>0)for(const f of ferm){const lb=f.amt*(f.wu==='kg'?2.20462:1);pts+=lb*f.ppg*(f.type==='Grain'?eff:1)/gal;mcu+=lb*f.color/gal;}
  const og=1+pts/1000,fg=1+(og-1)*(1-att),abv=(og-fg)*131.25/100;let ibu=0;
@@ -58,6 +68,6 @@ function priming(o){const {vol,vu='L',temp,tu='C',co2}=o;const tf=tu==='C'?temp*
  const res=3.0378-.050062*tf+.00026555*tf*tf,need=M(0,co2-res),dex=15.195*g*need;
  return {res,need,dex,suc:dex*.91,dme:dex*1.47,perBottle:g?dex/(g*3.78541/.355):0};}
 function abv(og,fg){return (og-fg)*131.25/100;}
-const E={calc,calcQC,tfsa,brew,priming,abv,TFSA};
+const E={calc,calcQC,tfsa,fhsa,brew,priming,abv,TFSA};
 if(typeof module!=='undefined')module.exports=E;else root.NL=E;
 })(this);
