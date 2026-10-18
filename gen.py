@@ -1,5 +1,5 @@
 import json,os,html,datetime
-BASE="https://northledgertools.github.io/"; G="https://northledgertools.gumroad.com/l/"
+BASE="https://northledgertools.com/"; G="https://northledgertools.gumroad.com/l/"
 UPD="2026-10-18"; BRAND="NorthLedger Tools"
 def faq_ld(faq): return {"@type":"FAQPage","mainEntity":[{"@type":"Question","name":q,"acceptedAnswer":{"@type":"Answer","text":a}} for q,a in faq]}
 def app_ld(name,url,desc,cat="FinanceApplication",lang="en-CA"):
@@ -481,4 +481,5 @@ open("llms.txt","w").write(f"""# NorthLedger Tools
 open("assets/favicon.svg","w").write('<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><rect width="32" height="32" rx="6" fill="#1F3A5F"/><path d="M8 24V8l16 16V8" stroke="#2A9D8F" stroke-width="4" fill="none"/></svg>')
 open("404.html","w").write('<!doctype html><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><title>Not found | NorthLedger Tools</title><link rel=stylesheet href="/assets/style.css"><main class=w><h1>Page not found</h1><p><a href="/">Go to NorthLedger Tools home</a></p></main>')
 open(".nojekyll","w").write("")
+open("CNAME","w").write("northledgertools.com")
 print("generated")

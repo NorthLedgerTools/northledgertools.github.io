@@ -43,4 +43,4 @@ Allow: /
 User-agent: *
 Allow: /
 
-Sitemap: https://northledgertools.github.io/sitemap.xml
+Sitemap: https://northledgertools.com/sitemap.xml
