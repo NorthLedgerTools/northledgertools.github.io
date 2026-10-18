@@ -68,6 +68,22 @@ function priming(o){const {vol,vu='L',temp,tu='C',co2}=o;const tf=tu==='C'?temp*
  const res=3.0378-.050062*tf+.00026555*tf*tf,need=M(0,co2-res),dex=15.195*g*need;
  return {res,need,dex,suc:dex*.91,dme:dex*1.47,perBottle:g?dex/(g*3.78541/.355):0};}
 function abv(og,fg){return (og-fg)*131.25/100;}
-const E={calc,calcQC,tfsa,fhsa,brew,priming,abv,TFSA};
+/* Freelancer set-aside (ON/BC/AB): share of each dollar of profit to put aside for income tax + CPP/CPP2. Same as product 01 rows 57-65. */
+function setAside(prov,o){const r=calc(prov,o),wh=+o.withheld||0,need=M(0,r.bill-wh),se=r.se;
+ return Object.assign(r,{need,pct:se>0?need/se:0,per1000:se>0?1000*need/se:0,monthly:need/12,quarterly:need/4,owing:M(0,r.tax-wh),instal:M(0,r.tax-wh)>3000});}
+/* RRSP refund estimate: income tax with vs without the RRSP deduction (employment + other income). prov: ON, BC, AB or QC. */
+function taxOnly(prov,o){if(prov==='QC'){const r=calcQC(o);return {fed:r.fed,prov:r.qtax,total:r.fed+r.qtax};}const r=calc(prov,o);return {fed:r.fed,prov:r.prov,total:r.fed+r.prov};}
+function rrspRefund(prov,o){const {emp=0,other=0,rrsp=0,withheld=0}=o,b={emp,other};
+ const a=taxOnly(prov,b),w=taxOnly(prov,Object.assign({},b,{rrsp})),saving=a.total-w.total;
+ const mr=(taxOnly(prov,{emp,other:other+100}).total-a.total)/100;
+ return {before:a.total,after:w.total,saving,fedSaving:a.fed-w.fed,provSaving:a.prov-w.prov,avg:rrsp>0?saving/rrsp:0,marginal:mr,refund:withheld?withheld-w.total:null};}
+/* Quebec self-employed instalments (Revenu Québec + CRA). Current-year method = 2026 estimate / 4; prior-year method = 2025 totals / 4.
+   Quebec amount includes Quebec tax + QPP + QPIP + HSF; federal = federal tax after the 16.5% abatement. Threshold $1,800 for both. */
+function qcInstal(o){const r=calcQC(o),wf=+o.withheld_fed||0,wq=+o.withheld_qc||0,prior=o.prior||{};
+ const curQ=M(0,r.qcbill-wq),curF=M(0,r.fed-wf),owQ=M(0,r.qtax-wq),owF=curF,py=o.priorOver;/* 'yes'|'no'|'unsure' */
+ const reqQ=owQ>1800&&py!=='no',reqF=owF>1800&&py!=='no';
+ const pQ=prior.qc!=null?M(0,+prior.qc)/4:null,pF=prior.fed!=null?M(0,+prior.fed)/4:null;
+ return Object.assign(r,{curQ,curF,qQ:curQ/4,qF:curF/4,owQ,owF,reqQ,reqF,sure:py==='yes'||py==='no',pQ,pF});}
+const E={calc,calcQC,setAside,rrspRefund,qcInstal,tfsa,fhsa,brew,priming,abv,TFSA};
 if(typeof module!=='undefined')module.exports=E;else root.NL=E;
 })(this);
