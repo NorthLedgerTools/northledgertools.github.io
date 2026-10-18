@@ -441,7 +441,7 @@ body=f'''<h1>Free, accurate Canadian money calculators</h1><p class="lede">Simpl
 <p class="disc">These tools give estimates, not tax or financial advice. The Canada Revenue Agency and Revenu Québec are the official sources for your own situation.</p>'''
 page("","NorthLedger Tools: Free Canadian TFSA and Self-Employed Tax Calculators 2026",
  "Free, ad-free calculators for Canadians: TFSA, FHSA and RRSP 2026, freelancer tax set-aside and instalments, self-employed tax for Ontario, BC, Alberta and Quebec, plus homebrew calculators.",
- body,extra='<meta name="google-site-verification" content="bgydH5GCEgFakbRT0gUBnsEbqirokCbZlFyL7epcgsk" />',ld=[{"@type":"WebSite","name":BRAND,"url":BASE,"inLanguage":"en-CA"},{"@type":"Organization","name":BRAND,"url":BASE}])
+ body,extra='<meta name="google-site-verification" content="bgydH5GCEgFakbRT0gUBnsEbqirokCbZlFyL7epcgsk" /><meta name="google-site-verification" content="NMIoLmLE4MjwpZiBJ10qdWgRSTdVe_NgjuytyJ4b114" />',ld=[{"@type":"WebSite","name":BRAND,"url":BASE,"inLanguage":"en-CA"},{"@type":"Organization","name":BRAND,"url":BASE}])
 body='''<h1>Privacy policy</h1><p><b>Effective October 12, 2026.</b></p>
 <p>NorthLedger Tools ("we") runs this website as a set of static pages hosted on GitHub Pages.</p>
 <h2>What we collect</h2><p>Nothing. The calculators run entirely in your web browser. The numbers you type are not sent to us or stored anywhere. We do not use cookies, analytics, advertising, tracking pixels or third-party scripts.</p>
