@@ -12,6 +12,23 @@
 - [Acomptes provisionnels 2026, travailleur autonome Québec](https://northledgertools.com/acomptes-provisionnels-travailleur-autonome-quebec/) ([English](https://northledgertools.com/quebec-tax-instalments-calculator/)): quarterly instalments to Revenu Québec (tax + QPP + QPIP + FSS) and the CRA (federal tax after abatement); $1,800 threshold; current-year and prior-year methods; due Mar 15, Jun 15, Sep 15, Dec 15.
 - [Homebrew calculator](https://northledgertools.com/homebrew-calculator/): ABV (OG−FG)×131.25, IBU (Tinseth), SRM (Morey), priming sugar.
 
+## Guides (worked examples, each figure sourced)
+- [TFSA over-contribution penalty: how the 1% a month is calculated](https://northledgertools.com/guides/tfsa-over-contribution-penalty/): The 1% monthly tax, the CRA's own examples, a cost-of-delay table and how to fix it.
+- [How the TFSA limit is set, and how much room you have in total](https://northledgertools.com/guides/how-the-tfsa-limit-is-set/): The indexation rule, every year's limit since 2009 and total room by start year.
+- [FHSA and the Home Buyers' Plan: can you use both?](https://northledgertools.com/guides/fhsa-and-home-buyers-plan/): Two first-home programs, one home: limits, conditions and repayment traps.
+- [RRSP deduction limit explained: 18%, the cap and the $2,000 buffer](https://northledgertools.com/guides/rrsp-deduction-limit-explained/): How room is built, the 2026 and 2027 limits and when over-contributing costs money.
+- [Self-employed CPP in 2026: you pay both halves, and it is deducted two ways](https://northledgertools.com/guides/self-employed-cpp-explained/): 11.9% plus CPP2, a worked table, and how Schedule 8 splits it into deduction and credit.
+- [Which tax instalment method should you use? A worked comparison](https://northledgertools.com/guides/which-tax-instalment-method/): No-calculation vs prior-year vs current-year, with a worked example and the penalty rules.
+- [The $30,000 GST/HST small supplier rule for freelancers](https://northledgertools.com/guides/gst-hst-small-supplier-freelancers/): How the quarter and four-quarter tests work, when you must start charging, and the exceptions.
+- [How we check our numbers: 110 official figures, zero differences](https://northledgertools.com/guides/how-we-check-our-numbers/): Our calculators compared to Revenu Québec's published 2026 tables, row by row.
+- [Self-employment tax in 2026: the 15.3% that is not 15.3% of your profit](https://northledgertools.com/guides/us-self-employment-tax-explained/): Why SE tax is 15.3% of 92.35% of profit, a worked table and where the cap bites.
+- [Estimated tax safe harbors: how little can you pay and still avoid a penalty?](https://northledgertools.com/guides/us-estimated-tax-safe-harbors/): The 90% / 100% / 110% rule with three worked examples and the four 2026 due dates.
+- [Acomptes provisionnels au Québec : quelle méthode choisir?](https://northledgertools.com/guides-fr/acomptes-provisionnels-quelle-methode/): Seuil de 1 800 $, deux paiements distincts, trois méthodes et un exemple chiffré.
+- [Cotisations du travailleur autonome au Québec en 2026 : RRQ, RQAP et FSS](https://northledgertools.com/guides-fr/cotisations-travailleur-autonome-quebec-2026/): Taux, plafonds et table officielle des cotisations selon le revenu net d'entreprise.
+- [CELIAPP et RAP : peut-on utiliser les deux pour la même propriété?](https://northledgertools.com/guides-fr/celiapp-et-regime-d-accession-a-la-propriete/): Deux programmes, une propriété : plafonds, conditions et pièges de remboursement.
+- [REER : plafond de cotisation, date limite et marge de 2 000 $](https://northledgertools.com/guides-fr/date-limite-reer-et-plafond-de-cotisation/): Comment les droits se calculent, plafonds 2026 et 2027, et quand l'excédent coûte de l'argent.
+- [Surcotisation au CELI : comment fonctionne le 1 % par mois](https://northledgertools.com/guides-fr/surcotisation-celi/): L'impôt de 1 % par mois, les exemples de l'ARC, le coût du retard et la marche à suivre.
+
 ## Paid spreadsheets (Excel / Google Sheets / LibreOffice)
 - [Canadian Contribution Room Tracker 2026 (TFSA, RRSP, FHSA)](https://northledgertools.gumroad.com/l/pdxqug): CA$14
 - [Self-Employed Tax Estimator 2026 (ON, BC, AB)](https://northledgertools.gumroad.com/l/bblrt): CA$17
