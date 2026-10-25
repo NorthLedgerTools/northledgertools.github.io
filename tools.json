@@ -1,0 +1,217 @@
+{
+ "site": "https://northledgertools.com",
+ "publisher": "NorthLedger Tools",
+ "pricing": "free, no sign-in, no ads",
+ "privacy": "calculations run in the browser (see /privacy/)",
+ "not_advice": "Planning tools, not tax advice.",
+ "llms_txt": "https://northledgertools.com/llms.txt",
+ "sitemap": "https://northledgertools.com/sitemap.xml",
+ "tools": [
+  {
+   "name": "1099 Self-Employment Tax Calculator 2026 (Quarterly)",
+   "url": "https://northledgertools.com/1099-self-employment-tax-calculator/",
+   "description": "Free 2026 calculator for 1099 and freelance income: self-employment tax, income tax with the QBI deduction, % to set aside, and quarterly estimated payments.",
+   "language": "en-US"
+  },
+  {
+   "name": "Calcul des acomptes provisionnels 2026 (Québec)",
+   "url": "https://northledgertools.com/acomptes-provisionnels-travailleur-autonome-quebec/",
+   "description": "Calculateur gratuit des acomptes provisionnels 2026 pour travailleurs autonomes au Québec : en devez-vous, et combien à Revenu Québec et à l'ARC par trimestre?",
+   "language": "fr-CA"
+  },
+  {
+   "name": "Calcul des droits CELI 2026 (année par année)",
+   "url": "https://northledgertools.com/calcul-droits-celi/",
+   "description": "Calculateur gratuit des droits CELI 2026 : entrez votre année de naissance et vos cotisations pour voir vos droits restants depuis 2009 (7 000 $ en 2026).",
+   "language": "fr-CA"
+  },
+  {
+   "name": "Calcul des droits CELIAPP 2026 (report inclus)",
+   "url": "https://northledgertools.com/calcul-droits-celiapp/",
+   "description": "Calculateur gratuit des droits de participation au CELIAPP 2026 : entrez l'année d'ouverture et vos cotisations pour voir droits, report et plafond à vie.",
+   "language": "fr-CA"
+  },
+  {
+   "name": "Calcul du remboursement d'impôt REER 2026",
+   "url": "https://northledgertools.com/calcul-remboursement-reer/",
+   "description": "Calculateur gratuit 2026 : combien d'impôt une cotisation REER vous fait économiser (Québec, Ontario, C.-B., Alberta), abattement fédéral de 16,5 % au Québec.",
+   "language": "fr-CA"
+  },
+  {
+   "name": "California Paycheck Calculator 2026: SDI, Overtime",
+   "url": "https://northledgertools.com/california-paycheck-calculator/",
+   "description": "Free 2026 California paycheck calculator: take-home pay with EDD state withholding (DE 4), 1.3% SDI, daily overtime and double time, 401(k) and bonus.",
+   "language": "en-US"
+  },
+  {
+   "name": "FHSA Contribution Room Calculator 2026 (Carry-Forward)",
+   "url": "https://northledgertools.com/fhsa-contribution-room-calculator/",
+   "description": "Free FHSA room calculator for 2026: enter the year you opened your FHSA and your yearly contributions to see room, carry-forward and lifetime room left.",
+   "language": "en-CA"
+  },
+  {
+   "name": "Freelancer Tax Set-Aside Calculator Canada 2026",
+   "url": "https://northledgertools.com/freelancer-tax-set-aside-calculator/",
+   "description": "Free 2026 calculator: what % of each freelance payment to save for income tax and CPP in Ontario, BC or Alberta, with monthly target and quarterly instalments.",
+   "language": "en-CA"
+  },
+  {
+   "name": "Homebrew Calculator: ABV, IBU, OG/FG, Priming Sugar",
+   "url": "https://northledgertools.com/homebrew-calculator/",
+   "description": "Free homebrew calculators: ABV from OG/FG, recipe OG/FG/IBU (Tinseth)/SRM, and bottle priming sugar in grams for litres or gallons (metric + US).",
+   "language": "en-CA"
+  },
+  {
+   "name": "Calcul d'impôt travailleur autonome 2026 : ON, C.-B., AB",
+   "url": "https://northledgertools.com/impot-travailleur-autonome-ontario-cb-alberta/",
+   "description": "Calculateur gratuit 2026 : impôt fédéral et provincial et RPC/RPC2 d'un travailleur autonome en Ontario, en Colombie-Britannique et en Alberta. Solde estimé.",
+   "language": "fr-CA"
+  },
+  {
+   "name": "Calcul d'impôt travailleur autonome Québec 2026",
+   "url": "https://northledgertools.com/impot-travailleur-autonome-quebec/",
+   "description": "Calculateur gratuit 2026 pour travailleurs autonomes au Québec : impôt du Québec et fédéral (abattement 16,5 %), RRQ, RQAP et FSS. Solde à payer estimé.",
+   "language": "fr-CA"
+  },
+  {
+   "name": "Quebec Self-Employed Tax Calculator 2026 (QPP, QPIP)",
+   "url": "https://northledgertools.com/quebec-self-employed-tax-calculator/",
+   "description": "Free 2026 tax calculator for self-employed Quebec residents: Quebec and federal income tax (16.5% abatement), QPP, QPIP and Health Services Fund.",
+   "language": "en-CA"
+  },
+  {
+   "name": "Quebec Tax Instalment Calculator 2026 (Self-Employed)",
+   "url": "https://northledgertools.com/quebec-tax-instalments-calculator/",
+   "description": "Free 2026 instalment calculator for self-employed Quebec residents: do you need to pay instalments, and how much to Revenu Québec and the CRA each quarter?",
+   "language": "en-CA"
+  },
+  {
+   "name": "RRSP Tax Refund Calculator 2026 (ON, QC, BC, AB)",
+   "url": "https://northledgertools.com/rrsp-tax-refund-calculator/",
+   "description": "Free 2026 RRSP tax savings calculator: see how much income tax an RRSP contribution saves, with federal and provincial rates for ON, Quebec, BC and Alberta.",
+   "language": "en-CA"
+  },
+  {
+   "name": "Self-Employed Tax Calculator 2026: ON, BC, AB (CPP)",
+   "url": "https://northledgertools.com/self-employed-tax-calculator/",
+   "description": "Free 2026 self-employed income tax and CPP calculator for Ontario, British Columbia and Alberta: federal + provincial tax, CPP/CPP2 and balance owing.",
+   "language": "en-CA"
+  },
+  {
+   "name": "Texas Paycheck Calculator 2026: Hourly, Overtime, Bonus",
+   "url": "https://northledgertools.com/texas-paycheck-calculator/",
+   "description": "Free 2026 Texas paycheck calculator: take-home pay from hourly or salary, overtime, 401(k) and bonus, using IRS Pub. 15-T. Texas has no state income tax.",
+   "language": "en-US"
+  },
+  {
+   "name": "TFSA Contribution Room Calculator 2026 (Year by Year)",
+   "url": "https://northledgertools.com/tfsa-contribution-room-calculator/",
+   "description": "Free TFSA room calculator for 2026: enter your birth year and contributions to see your room left, year by year from 2009 using CRA limits ($7,000 for 2026).",
+   "language": "en-CA"
+  },
+  {
+   "name": "UK VAT Calculator 2026: Add or Remove VAT (20%, 5%, 0%)",
+   "url": "https://northledgertools.com/uk-vat-calculator/",
+   "description": "Free UK VAT calculator for 2026: add or remove 20%, 5% or 0% VAT to the penny, plus your VAT registration deadline from the £90,000 threshold rules.",
+   "language": "en-GB"
+  },
+  {
+   "name": "VAT Flat Rate Scheme Calculator 2026 (UK)",
+   "url": "https://northledgertools.com/vat-flat-rate-scheme-calculator/",
+   "description": "Free UK VAT Flat Rate Scheme calculator: pick your sector, apply the 16.5% limited cost test and 1% first-year discount, compare with standard VAT.",
+   "language": "en-GB"
+  }
+ ],
+ "guides": [
+  {
+   "name": "Acomptes provisionnels au Québec : quelle méthode choisir",
+   "url": "https://northledgertools.com/guides-fr/acomptes-provisionnels-quelle-methode/",
+   "description": "Deux gouvernements, deux séries d'acomptes : seuil de 1 800 $, dates du 15 mars au 15 décembre, trois méthodes, intérêts et pénalités, exemple pour 60 000 $.",
+   "language": "fr-CA"
+  },
+  {
+   "name": "CELIAPP et RAP : utiliser les deux (règles de l'ARC, 2026)",
+   "url": "https://northledgertools.com/guides-fr/celiapp-et-regime-d-accession-a-la-propriete/",
+   "description": "Comment le CELIAPP et le Régime d'accession à la propriété (REER) se combinent : 8 000 $ par an, 40 000 $ à vie, retrait admissible, RAP de 60 000 $.",
+   "language": "fr-CA"
+  },
+  {
+   "name": "Cotisations du travailleur autonome au Québec 2026 (RRQ)",
+   "url": "https://northledgertools.com/guides-fr/cotisations-travailleur-autonome-quebec-2026/",
+   "description": "Taux et plafonds 2026 du RRQ (12,6 %, maximum 9 791 $), du RQAP (0,764 %) et du Fonds des services de santé, avec la table officielle de Revenu Québec.",
+   "language": "fr-CA"
+  },
+  {
+   "name": "REER : plafond de déduction 2026 et 2027, date limite",
+   "url": "https://northledgertools.com/guides-fr/date-limite-reer-et-plafond-de-cotisation/",
+   "description": "Votre plafond REER est 18 % du revenu gagné de l'an dernier, jusqu'à 33 810 $ pour 2026 (35 390 $ pour 2027). Date limite, marge de 2 000 $, impôt de 1 %/mois.",
+   "language": "fr-CA"
+  },
+  {
+   "name": "Surcotisation au CELI : l'impôt de 1 % par mois (ARC)",
+   "url": "https://northledgertools.com/guides-fr/surcotisation-celi/",
+   "description": "L'ARC impose 1 % par mois sur le montant excédentaire le plus élevé de chaque mois. Exemples de l'ARC, coût du retard, déclaration RC243 et marche à suivre.",
+   "language": "fr-CA"
+  },
+  {
+   "name": "FHSA and the Home Buyers' Plan: Using Both (2026)",
+   "url": "https://northledgertools.com/guides/fhsa-and-home-buyers-plan/",
+   "description": "How the FHSA and the RRSP Home Buyers' Plan work together: $8,000 a year, $40,000 lifetime, qualifying withdrawals, the $60,000 HBP and repayment traps.",
+   "language": "en-CA"
+  },
+  {
+   "name": "GST/HST Small Supplier Rule for Freelancers ($30,000)",
+   "url": "https://northledgertools.com/guides/gst-hst-small-supplier-freelancers/",
+   "description": "Freelancers need not register for GST/HST until taxable revenue passes $30,000. The single-quarter and four-quarter tests, the 29-day deadline and exceptions.",
+   "language": "en-CA"
+  },
+  {
+   "name": "How the TFSA Annual Limit Is Set (Table Since 2009)",
+   "url": "https://northledgertools.com/guides/how-the-tfsa-limit-is-set/",
+   "description": "The TFSA limit is $5,000 indexed to inflation, rounded to the nearest $500. Year-by-year table 2009-2026, total room by start year, withdrawals added back.",
+   "language": "en-CA"
+  },
+  {
+   "name": "How We Check Our Numbers: 110 Official Figures",
+   "url": "https://northledgertools.com/guides/how-we-check-our-numbers/",
+   "description": "Our tax calculators are tested against 110 figures from Revenu Québec's published 2026 self-employed tables, with zero differences above $1. How it works.",
+   "language": "en-CA"
+  },
+  {
+   "name": "RRSP Deduction Limit Explained: 2026 and 2027 Limits",
+   "url": "https://northledgertools.com/guides/rrsp-deduction-limit-explained/",
+   "description": "How your RRSP deduction limit is built (18% of last year's earned income, capped), the 2026 and 2027 dollar limits, the March 1 deadline and the $2,000 buffer.",
+   "language": "en-CA"
+  },
+  {
+   "name": "Self-Employed CPP in 2026: Both Shares and CPP2",
+   "url": "https://northledgertools.com/guides/self-employed-cpp-explained/",
+   "description": "Self-employed Canadians pay both halves of CPP: 11.9% on earnings from $3,500 to $74,600, plus 8% CPP2 to $85,000. Worked table and how it is deducted.",
+   "language": "en-CA"
+  },
+  {
+   "name": "TFSA Over-Contribution Penalty: the 1% Monthly Tax",
+   "url": "https://northledgertools.com/guides/tfsa-over-contribution-penalty/",
+   "description": "The CRA taxes excess TFSA amounts at 1% per month on the highest excess in each month. Worked examples, cost-of-delay table, RC243 and what to do first.",
+   "language": "en-CA"
+  },
+  {
+   "name": "Estimated Tax Safe Harbors 2026: 90% / 100% / 110%",
+   "url": "https://northledgertools.com/guides/us-estimated-tax-safe-harbors/",
+   "description": "US freelancers avoid the underpayment penalty by paying the smaller of 90% of this year's tax or 100% (110% above $150,000 AGI) of last year's. 2026 due dates.",
+   "language": "en-CA"
+  },
+  {
+   "name": "Self-Employment Tax 2026: 15.3% on 92.35% (IRS)",
+   "url": "https://northledgertools.com/guides/us-self-employment-tax-explained/",
+   "description": "US self-employment tax is 15.3% of 92.35% of net profit: 12.4% social security up to $184,500 plus 2.9% Medicare. Worked table at five income levels.",
+   "language": "en-CA"
+  },
+  {
+   "name": "Which Tax Instalment Method to Use (CRA, Worked Example)",
+   "url": "https://northledgertools.com/guides/which-tax-instalment-method/",
+   "description": "Three CRA tax instalment methods compared in a worked example: no-calculation, prior-year, current-year. Interest, penalties and Quebec's $1,800 rule.",
+   "language": "en-CA"
+  }
+ ]
+}

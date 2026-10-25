@@ -225,7 +225,7 @@ page("california-paycheck-calculator/","California Paycheck Calculator 2026: SDI
 
 # ---------- French: self-employed tax Ontario / BC / Alberta ----------
 SEFR_PATH="impot-travailleur-autonome-ontario-cb-alberta/"
-SEFR_SRC=[("ARC : Taux d'imposition des particuliers au Canada (en anglais)","https://www.canada.ca/en/revenue-agency/services/tax/individuals/frequently-asked-questions-individuals/canadian-income-tax-rates-individuals-current-previous-years.html"),
+SEFR_SRC=[("ARC : Taux d'imposition des particuliers au Canada (en anglais)","https://www.canada.ca/en/revenue-agency/services/tax/individuals/tax-rates-brackets.html"),
 ("ARC : Taux de cotisation, maximums et exemptions du RPC (en anglais)","https://www.canada.ca/en/revenue-agency/services/tax/businesses/topics/payroll/payroll-deductions-contributions/canada-pension-plan-cpp/cpp-contribution-rates-maximums-exemptions.html"),
 ("ARC : T4127, Formules pour le calcul des retenues sur la paie (juillet 2026) (en anglais)","https://www.canada.ca/en/revenue-agency/services/forms-publications/payroll/t4127-payroll-deductions-formulas/t4127-jul.html"),
 ("ARC : Acomptes provisionnels d'impôt sur le revenu (en anglais)","https://www.canada.ca/en/revenue-agency/services/payments/payments-cra/individual-payments/income-tax-instalments.html"),

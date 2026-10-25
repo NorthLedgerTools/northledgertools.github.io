@@ -5,7 +5,9 @@ def faq_ld(faq): return {"@type":"FAQPage","mainEntity":[{"@type":"Question","na
 def app_ld(name,url,desc,cat="FinanceApplication",lang="en-CA",cur="CAD"):
     return {"@type":"WebApplication","name":name,"url":url,"description":desc,"applicationCategory":cat,"operatingSystem":"Any (web browser)","inLanguage":lang,
             "isAccessibleForFree":True,"offers":{"@type":"Offer","price":"0","priceCurrency":cur},"publisher":{"@type":"Organization","name":BRAND,"url":BASE}}
+from seo_meta import meta as _meta
 def page(path,title,desc,body,lang="en",ld=None,alt=None,script="",extra="",upd=None,loc=None,libs=""):
+    title,desc=_meta(path,title,desc)
     url=BASE+path; L=loc or ("fr-CA" if lang=="fr" else "en-CA")
     hl="".join(f'<link rel="alternate" hreflang="{h}" href="{BASE+p}">' for h,p in (alt or []))
     if alt: hl+=f'<link rel="alternate" hreflang="x-default" href="{BASE+[p for h,p in alt if h.startswith("en")][0]}">'
@@ -91,7 +93,7 @@ body=f'''<h1>Self-Employed Tax Calculator 2026 (Ontario, BC, Alberta)</h1>
 <h2>How the estimate works</h2><p>Net self-employment income (revenue minus expenses) is added to your other income. CPP and CPP2 on self-employment earnings are calculated at the self-employed rates, minus anything already paid through employment. Deductible CPP, RRSP and FHSA amounts reduce taxable income. Federal tax uses the 2026 brackets and credits (basic personal amount, Canada employment amount, CPP and EI credits). Provincial tax adds the rules for your province: Ontario surtax, Ontario tax reduction, LIFT credit and Ontario Health Premium; the BC tax reduction; and Alberta's 2026 brackets.</p>
 <p>Quebec resident? Use the <a href="/impot-travailleur-autonome-quebec/">Quebec self-employed calculator (QPP, QPIP, FSS)</a>.</p>
 {faqhtml(faq)}
-{src([("CRA: Canadian income tax rates for individuals","https://www.canada.ca/en/revenue-agency/services/tax/individuals/frequently-asked-questions-individuals/canadian-income-tax-rates-individuals-current-previous-years.html"),("CRA: CPP contribution rates, maximums and exemptions","https://www.canada.ca/en/revenue-agency/services/tax/businesses/topics/payroll/payroll-deductions-contributions/canada-pension-plan-cpp/cpp-contribution-rates-maximums-exemptions.html"),("CRA: T4127 Payroll Deductions Formulas (July 2026)","https://www.canada.ca/en/revenue-agency/services/forms-publications/payroll/t4127-payroll-deductions-formulas/t4127-jul.html"),("CRA: Income tax instalments","https://www.canada.ca/en/revenue-agency/services/payments/payments-cra/individual-payments/income-tax-instalments.html"),("Ontario: Low-income Individuals and Families Tax (LIFT) Credit","https://www.ontario.ca/page/low-income-individuals-and-families-tax-credit"),("BC: Personal income tax rates","https://www2.gov.bc.ca/gov/content/taxes/income-taxes/personal/tax-rates"),("CRA: T4032AB payroll tables, general information","https://www.canada.ca/en/revenue-agency/services/forms-publications/payroll/t4032-payroll-deductions-tables/t4032ab-jan/t4032ab-january-general-information.html")])}
+{src([("CRA: Canadian income tax rates for individuals","https://www.canada.ca/en/revenue-agency/services/tax/individuals/tax-rates-brackets.html"),("CRA: CPP contribution rates, maximums and exemptions","https://www.canada.ca/en/revenue-agency/services/tax/businesses/topics/payroll/payroll-deductions-contributions/canada-pension-plan-cpp/cpp-contribution-rates-maximums-exemptions.html"),("CRA: T4127 Payroll Deductions Formulas (July 2026)","https://www.canada.ca/en/revenue-agency/services/forms-publications/payroll/t4127-payroll-deductions-formulas/t4127-jul.html"),("CRA: Income tax instalments","https://www.canada.ca/en/revenue-agency/services/payments/payments-cra/individual-payments/income-tax-instalments.html"),("Ontario: Low-income Workers Tax Credit (known as the LIFT credit)","https://www.ontario.ca/page/low-income-workers-tax-credit"),("BC: Personal income tax rates","https://www2.gov.bc.ca/gov/content/taxes/income-taxes/personal/tax-rates"),("CRA: T4032AB payroll tables, general information","https://www.canada.ca/en/revenue-agency/services/forms-publications/payroll/t4032-payroll-deductions-tables/t4032ab-jan/t4032ab-january-general-information.html")])}
 <p class="disc">Not tax advice. A simplified estimate for 2026 using rates published as of October 12, 2026, for a single individual with no other credits. Your actual tax depends on your full return. For filing, use certified tax software or a qualified professional.</p>'''
 js='<script>'+FMT+money_en+'''$("go").onclick=()=>{const p=$("prov").value,r=NL.calc(p,{rev:v("rev"),exp:v("exp"),emp:v("emp"),other:v("oth"),rrsp:v("rrsp"),fhsa:v("fhsa"),withheld:v("wh"),paid:v("paid")});
 const se=Math.max(0,r.se),pct=se>0?(r.bill-0)/Math.max(1,se+v("emp")+v("oth")):0,o=$("out");o.hidden=false;
@@ -180,7 +182,7 @@ body=f'''<h1>Homebrew Calculator: ABV, IBU, OG/FG, SRM and Priming Sugar</h1>
 <div><label for="co2">Target CO2 volumes</label><input id="co2" inputmode="decimal" value="2.4"></div></div><div id="pout"></div></div>
 <div class="cta"><b>Every brew in one file: Homebrew Recipe &amp; Priming Calculator (spreadsheet)</b><p>The same formulas, plus:</p><ul><li>10 fermentable and 8 hop slots with a 30-malt / 20-hop library you can extend</li><li>BU:GU ratio, °Plato and EBC</li><li>a batch log for measured gravities, dates and tasting notes</li><li>works offline in Excel, Google Sheets and LibreOffice</li></ul><a class="btn" href="{G}vglxwa">Get the calculator (CA$9) →</a> <a class="alt" href="https://www.etsy.com/listing/4594000095" rel="noopener">or buy on Etsy</a></div>
 {faqhtml(faq)}
-{src([("Glenn Tinseth: hop utilization (IBU) formula","https://www.realbeer.com/hops/research.html"),("Brewer's Friend: beer colour (Morey equation)","https://www.brewersfriend.com/2008/05/06/beer-color-calculation/"),("Brewer's Friend: how to determine ABV","https://www.brewersfriend.com/how-to-determine-your-beers-abv/"),("Brewer's Friend: priming calculator (residual CO2)","https://www.brewersfriend.com/beer-priming-calculator/"),("BYO: grain characteristics","https://byo.com/resource/grains/")])}
+{src([("Tinseth hop utilization (IBU) formula: Bigness and Boil Time factors, as published by Glenn Tinseth (original realbeer.com page retired; this is a faithful copy at Home Brew Academy)","https://homebrewacademy.com/ibu-calculator/"),("BeerSmith: beer colour, Morey equation and EBC = 1.97 × SRM","https://beersmith.com/blog/2008/04/29/beer-color-understanding-srm-lovibond-and-ebc/"),("Brewer's Friend: ABV formulas, standard (OG − FG) × 131.25","https://www.brewersfriend.com/2011/06/16/alcohol-by-volume-calculator-updated/"),("Brewer's Friend: priming calculator (residual CO2)","https://www.brewersfriend.com/beer-priming-calculator/"),("BYO: grains and adjuncts chart","https://byo.com/charts-calculators/grains-and-adjuncts-chart/")])}
 <p class="disc">Estimates for hobby use; results depend on your equipment, ingredients and process. Over-carbonated bottles can burst: make sure fermentation is finished (stable gravity for 3 days) before bottling. Malt values are typical figures; prefer your maltster's spec sheet.</p>'''
 js='<script>'+FMT+f'const MALTS={json.dumps(MALTS)};'+'''const p=x=>parseFloat(x)||0;
 function a(){const og=p($("og").value),fg=p($("fg").value);$("abv").textContent=og>fg?(NL.abv(og,fg)*100).toFixed(2)+"%":"–";}["og","fg"].forEach(i=>$(i).oninput=a);a();
@@ -463,12 +465,17 @@ page("privacy/","Privacy Policy | NorthLedger Tools","NorthLedger Tools collects
 # sitemap etc
 paths=["","tfsa-contribution-room-calculator/","fhsa-contribution-room-calculator/","calcul-droits-celiapp/","self-employed-tax-calculator/","impot-travailleur-autonome-quebec/","quebec-self-employed-tax-calculator/","rrsp-tax-refund-calculator/","calcul-remboursement-reer/","freelancer-tax-set-aside-calculator/","acomptes-provisionnels-travailleur-autonome-quebec/","quebec-tax-instalments-calculator/","calcul-droits-celi/","1099-self-employment-tax-calculator/","texas-paycheck-calculator/","california-paycheck-calculator/","uk-vat-calculator/","vat-flat-rate-scheme-calculator/","impot-travailleur-autonome-ontario-cb-alberta/","homebrew-calculator/","privacy/"]
 NEWP={"","tfsa-contribution-room-calculator/","calcul-droits-celi/","1099-self-employment-tax-calculator/","texas-paycheck-calculator/","self-employed-tax-calculator/","california-paycheck-calculator/","uk-vat-calculator/","vat-flat-rate-scheme-calculator/","impot-travailleur-autonome-ontario-cb-alberta/"}
-open("sitemap.xml","w").write('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'+"".join(f"<url><loc>{BASE+p}</loc><lastmod>{NEWUPD if p in NEWP else UPD}</lastmod></url>\n" for p in paths)+"</urlset>\n")
+open("sitemap.xml","w").write('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'+"".join(f"<url><loc>{BASE+p}</loc><lastmod>{NEWUPD}</lastmod></url>\n" for p in paths)+"</urlset>\n")
 bots=["Googlebot","Bingbot","OAI-SearchBot","ChatGPT-User","GPTBot","PerplexityBot","Perplexity-User","ClaudeBot","Claude-SearchBot","Google-Extended","Applebot","Applebot-Extended","DuckDuckBot","CCBot"]
 open("robots.txt","w").write("".join(f"User-agent: {b}\nAllow: /\n\n" for b in bots)+"User-agent: *\nAllow: /\n\nSitemap: "+BASE+"sitemap.xml\n")
 open("llms.txt","w").write(f"""# NorthLedger Tools
 
 > Free, ad-free calculators for Canadians (2026 tax year), built on rates published by the Canada Revenue Agency and Revenu Québec. Each page cites its sources and links to a paid NorthLedger spreadsheet that adds year-round logging and tracking. Estimates only, not tax advice.
+
+## Start here
+- [Home page]({BASE}): all calculators and guides.
+- [All guides]({BASE}guides/) and [guides en français]({BASE}guides-fr/): worked examples with official sources.
+- [tools.json]({BASE}tools.json): machine-readable catalog of every calculator and guide (name, URL, description, language).
 
 ## Calculators
 - [TFSA Contribution Room Calculator 2026]({BASE}tfsa-contribution-room-calculator/) ([français : CELI]({BASE}calcul-droits-celi/)): room rebuilt year by year from 2009 using CRA limits ($7,000 for 2026, $109,000 cumulative); withdrawals added back the following January 1.
@@ -491,6 +498,7 @@ open("llms.txt","w").write(f"""# NorthLedger Tools
 - [Self-Employed Tax Estimator 2026 (ON, BC, AB)]({G}bblrt): CA$17
 - [Quebec Self-Employed Tax Estimator 2026 (bilingual)]({G}oymrg): CA$17
 - [Homebrew Recipe & Priming Calculator]({G}vglxwa): CA$9
+- [Mileage Log & Tracker 2026-2027 (IRS rate by trip date + Canada CRA method)]({G}bzofli): CA$10.99
 
 ## Policies
 - [Privacy]({BASE}privacy/): no cookies, analytics or data collection.

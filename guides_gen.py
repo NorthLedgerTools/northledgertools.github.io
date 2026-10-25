@@ -21,6 +21,8 @@ def nav_html(lang):
             '<a href="/homebrew-calculator/">Homebrew</a><a href="/guides/">Guides</a></nav>')
 
 def shell(path, title, desc, body, lang, ld, alt=None):
+    from seo_meta import meta as _meta
+    title, desc = _meta(path, title, desc)
     url = BASE + path
     L = "fr-CA" if lang == "fr" else "en-CA"
     hl = "".join(f'<link rel="alternate" hreflang="{h}" href="{BASE + p}">' for h, p in (alt or []))
@@ -36,6 +38,9 @@ def shell(path, title, desc, body, lang, ld, alt=None):
 <footer><div class="w">{foot} · <a href="/privacy/">{"Confidentialité" if lang == "fr" else "Privacy"}</a> · {"Mis à jour le" if lang == "fr" else "Updated"} {UPD}</div></footer></body></html>'''
     os.makedirs(path, exist_ok=True)
     open(os.path.join(path, "index.html"), "w").write(doc)
+
+# sitemap lastmod for every page: titles, descriptions and internal links changed 2026-10-25 (Growth SEO request)
+SITEMAP_LASTMOD = "2026-10-25"
 
 def gpath(g): return ("guides-fr/" if g["lang"] == "fr" else "guides/") + g["slug"] + "/"
 
@@ -195,7 +200,7 @@ def postprocess():
     sm = open("sitemap.xml").read()
     urls = [BASE + "guides/", BASE + "guides-fr/"] + [BASE + gpath(g) for g in GUIDES]
     sm = re.sub(r"<url><loc>%s(guides|guides-fr)/[^<]*</loc>.*?</url>\n?" % re.escape(BASE), "", sm)
-    add = "".join(f"<url><loc>{u}</loc><lastmod>{UPD}</lastmod></url>\n" for u in urls)
+    add = "".join(f"<url><loc>{u}</loc><lastmod>{SITEMAP_LASTMOD}</lastmod></url>\n" for u in urls)
     sm = sm.replace("</urlset>", add + "</urlset>")
     open("sitemap.xml", "w").write(sm)
     # 4) llms.txt

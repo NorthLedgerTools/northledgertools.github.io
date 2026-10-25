@@ -118,7 +118,7 @@ TX_SRC=[("Texas Constitution, Art. VIII, Sec. 24-a: Individual income tax prohib
 ("IRS Pub. 15-T (2026), Federal Income Tax Withholding Methods (Worksheet 1A, percentage-method tables)","https://www.irs.gov/pub/irs-pdf/p15t.pdf"),
 ("IRS Pub. 15 (2026), Employer's Tax Guide (Social Security 6.2% to $184,500, Medicare 1.45%, 22% supplemental rate)","https://www.irs.gov/publications/p15"),
 ("SSA: 2026 Cost-of-Living Adjustment fact sheet (wage base $184,500)","https://www.ssa.gov/news/en/cola/factsheets/2026.html"),
-("IRS: Working Families Tax Cuts, deductions for working Americans (qualified overtime, tips)","https://www.irs.gov/newsroom/one-big-beautiful-bill-act-tax-deductions-for-working-americans-and-seniors"),
+("IRS: Working Families Tax Cuts, deductions for working Americans (qualified overtime, tips)","https://www.irs.gov/newsroom/working-families-tax-cuts-tax-deductions-for-working-americans-and-seniors"),
 ("IRS Rev. Proc. 2025-32 (2026 brackets and standard deduction)","https://www.irs.gov/pub/irs-drop/rp-25-32.pdf"),
 ("Texas Workforce Commission: Texas minimum wage law ($7.25, the federal rate)","https://www.twc.texas.gov/programs/wage-and-hour/texas-minimum-wage-law"),
 ("Texas Labor Code ch. 61 (Texas Payday Law: paydays, final pay)","https://tcss.legis.texas.gov/docs/LA/htm/LA.61.htm"),

@@ -4,4 +4,5 @@ set -e
 cd "$(dirname "$0")"
 python3 gen.py
 python3 guides_gen.py
+python3 crosslinks.py
 node validation/rq_check.js

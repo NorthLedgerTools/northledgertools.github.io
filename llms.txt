@@ -2,6 +2,11 @@
 
 > Free, ad-free calculators for Canadians (2026 tax year), built on rates published by the Canada Revenue Agency and Revenu Québec. Each page cites its sources and links to a paid NorthLedger spreadsheet that adds year-round logging and tracking. Estimates only, not tax advice.
 
+## Start here
+- [Home page](https://northledgertools.com/): all calculators and guides.
+- [All guides](https://northledgertools.com/guides/) and [guides en français](https://northledgertools.com/guides-fr/): worked examples with official sources.
+- [tools.json](https://northledgertools.com/tools.json): machine-readable catalog of every calculator and guide (name, URL, description, language).
+
 ## Calculators
 - [TFSA Contribution Room Calculator 2026](https://northledgertools.com/tfsa-contribution-room-calculator/) ([français : CELI](https://northledgertools.com/calcul-droits-celi/)): room rebuilt year by year from 2009 using CRA limits ($7,000 for 2026, $109,000 cumulative); withdrawals added back the following January 1.
 - [FHSA Contribution Room Calculator 2026](https://northledgertools.com/fhsa-contribution-room-calculator/) ([français : CELIAPP](https://northledgertools.com/calcul-droits-celiapp/)): participation room year by year from the year the first FHSA was opened; $8,000 annual, carry-forward capped at $8,000 (max $16,000 in a year), $40,000 lifetime; RRSP transfers use room; withdrawals do not restore it.
@@ -40,6 +45,7 @@
 - [Self-Employed Tax Estimator 2026 (ON, BC, AB)](https://northledgertools.gumroad.com/l/bblrt): CA$17
 - [Quebec Self-Employed Tax Estimator 2026 (bilingual)](https://northledgertools.gumroad.com/l/oymrg): CA$17
 - [Homebrew Recipe & Priming Calculator](https://northledgertools.gumroad.com/l/vglxwa): CA$9
+- [Mileage Log & Tracker 2026-2027 (IRS rate by trip date + Canada CRA method)](https://northledgertools.gumroad.com/l/bzofli): CA$10.99
 
 ## Policies
 - [Privacy](https://northledgertools.com/privacy/): no cookies, analytics or data collection.
