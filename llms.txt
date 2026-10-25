@@ -12,6 +12,10 @@
 - [Acomptes provisionnels 2026, travailleur autonome Québec](https://northledgertools.com/acomptes-provisionnels-travailleur-autonome-quebec/) ([English](https://northledgertools.com/quebec-tax-instalments-calculator/)): quarterly instalments to Revenu Québec (tax + QPP + QPIP + FSS) and the CRA (federal tax after abatement); $1,800 threshold; current-year and prior-year methods; due Mar 15, Jun 15, Sep 15, Dec 15.
 - [1099 Self-Employment Tax Calculator 2026 (US)](https://northledgertools.com/1099-self-employment-tax-calculator/): federal self-employment tax (15.3% of 92.35%, Social Security wage base $184,500), income tax with the QBI deduction, and quarterly estimated payments per IRS Form 1040-ES.
 - [Texas Paycheck Calculator 2026 (US)](https://northledgertools.com/texas-paycheck-calculator/): take-home pay from hourly or salary, overtime and bonus using IRS Pub. 15-T; Texas has no state income tax.
+- [California Paycheck Calculator 2026 (US)](https://northledgertools.com/california-paycheck-calculator/): take-home pay with California EDD Method B withholding, SDI 1.3% (no wage cap), daily overtime and double time, 401(k) and bonus (10.23% state / 22% federal).
+- [UK VAT Calculator 2026](https://northledgertools.com/uk-vat-calculator/): add or remove VAT at 20%, 5% and 0%; VAT registration deadline and effective date from the £90,000 threshold rules.
+- [VAT Flat Rate Scheme Calculator 2026 (UK)](https://northledgertools.com/vat-flat-rate-scheme-calculator/): HMRC sector flat rates, 16.5% limited cost test and 1% first-year discount compared with standard VAT accounting.
+- [Calcul impôt travailleur autonome 2026, Ontario / C.-B. / Alberta](https://northledgertools.com/impot-travailleur-autonome-ontario-cb-alberta/) ([English](https://northledgertools.com/self-employed-tax-calculator/)): federal + provincial tax and RPC/RPC2.
 - [Homebrew calculator](https://northledgertools.com/homebrew-calculator/): ABV (OG−FG)×131.25, IBU (Tinseth), SRM (Morey), priming sugar.
 
 ## Guides (worked examples, each figure sourced)

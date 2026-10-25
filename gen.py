@@ -102,7 +102,7 @@ o.innerHTML=`<p>${r.balance>=0?"Estimated balance owing for 2026":"Estimated ref
 "<table><tbody>"+rows.map(([a,b])=>`<tr><td>${a}</td><td>${f(b)}</td></tr>`).join("")+"</tbody></table>";o.scrollIntoView({behavior:"smooth"});};</script>'''
 page("self-employed-tax-calculator/","Self-Employed Tax Calculator 2026: Ontario, BC, Alberta (CPP included) | NorthLedger Tools",
  "Free 2026 self-employed income tax and CPP calculator for Ontario, British Columbia and Alberta. Estimate federal + provincial tax, CPP/CPP2 and balance owing.",
- body,ld=[app_ld("Self-Employed Tax Calculator 2026 (ON, BC, AB)",BASE+"self-employed-tax-calculator/","Estimates 2026 federal and provincial income tax plus CPP for self-employed Canadians in Ontario, BC and Alberta."),faq_ld(faq)],script=js)
+ body,ld=[app_ld("Self-Employed Tax Calculator 2026 (ON, BC, AB)",BASE+"self-employed-tax-calculator/","Estimates 2026 federal and provincial income tax plus CPP for self-employed Canadians in Ontario, BC and Alberta."),faq_ld(faq)],script=js,alt=[("en-CA","self-employed-tax-calculator/"),("fr-CA","impot-travailleur-autonome-ontario-cb-alberta/")],upd="2026-10-25")
 
 # ---------- Quebec FR + EN ----------
 QSRC=[("Revenu Québec – Taux d'imposition / Tax rates","https://www.revenuquebec.ca/fr/citoyens/declaration-de-revenus/produire-votre-declaration-de-revenus/taux-dimposition/"),
@@ -425,6 +425,7 @@ o.innerHTML="<div class=scroll><table><thead>"+row(...J.th)+"</thead><tbody>"+ro
     page(t["path"],t["title"],t["desc"],body,lang=lg,alt=ialt,ld=[app_ld(t["h1"],BASE+t["path"],t["desc"],lang="fr-CA" if lg=="fr" else "en-CA"),faq_ld(t["faq"])],script=js)
 
 exec(open("pages_new.py",encoding="utf-8").read())
+exec(open("pages_b2.py",encoding="utf-8").read())
 # ---------- Home, privacy ----------
 body=f'''<h1>Free, accurate Canadian money calculators</h1><p class="lede">Simple calculators for TFSA and FHSA room and self-employed tax in Canada, built on rates published by the CRA and Revenu Québec, with the source cited on every page. A few US tools (1099 self-employment tax, paychecks) use IRS figures. No sign-up, no tracking, no ads.</p>
 <div class="tools"><a href="/tfsa-contribution-room-calculator/"><b>TFSA contribution room 2026</b>Room left this year, rebuilt year by year from 2009.</a>
@@ -441,6 +442,10 @@ body=f'''<h1>Free, accurate Canadian money calculators</h1><p class="lede">Simpl
 <a href="/quebec-tax-instalments-calculator/"><b>Quebec tax instalments 2026 (English)</b>Quarterly amounts for Revenu Québec and the CRA.</a>
 <a href="/1099-self-employment-tax-calculator/"><b>US 1099 self-employment tax 2026</b>Federal SE tax, QBI deduction and quarterly estimates (USD).</a>
 <a href="/texas-paycheck-calculator/"><b>Texas paycheck 2026 (USD)</b>Hourly, overtime and bonus take-home; no state income tax.</a>
+<a href="/california-paycheck-calculator/"><b>California paycheck 2026 (USD)</b>Take-home with state withholding, SDI, daily overtime and bonus.</a>
+<a href="/uk-vat-calculator/"><b>UK VAT calculator 2026 (GBP)</b>Add or remove 20%, 5% or 0% VAT and find your VAT registration date.</a>
+<a href="/vat-flat-rate-scheme-calculator/"><b>UK VAT Flat Rate Scheme 2026 (GBP)</b>Sector rates and the 16.5% limited cost test against standard accounting.</a>
+<a href="/impot-travailleur-autonome-ontario-cb-alberta/" hreflang="fr-CA"><b>Impôt travailleur autonome 2026 (Ontario, C.-B., Alberta)</b>Impôt fédéral et provincial et RPC/RPC2.</a>
 <a href="/homebrew-calculator/"><b>Homebrew: ABV, IBU, priming</b>Hobby brewing calculators in metric or US units.</a></div>
 <h2>About</h2><p>NorthLedger Tools makes calculators and spreadsheets that show their work. Each free calculator here uses the same formulas as the matching NorthLedger spreadsheet, which adds year-round logging and tracking. You can find them on <a href="https://northledgertools.gumroad.com/">our Gumroad store</a>. Rates are updated when governments publish new figures, normally each January.</p>
 <p class="disc">These tools give estimates, not tax or financial advice. The Canada Revenue Agency and Revenu Québec are the official sources for your own situation.</p>'''
@@ -456,8 +461,8 @@ body='''<h1>Privacy policy</h1><p><b>Effective October 12, 2026.</b></p>
 <h2>Contact and changes</h2><p>Questions about this policy can be sent through our Gumroad store page. If this policy changes, the updated version will be posted here with a new effective date.</p>'''
 page("privacy/","Privacy Policy | NorthLedger Tools","NorthLedger Tools collects no personal data: calculators run in your browser, with no cookies, analytics or ads.",body)
 # sitemap etc
-paths=["","tfsa-contribution-room-calculator/","fhsa-contribution-room-calculator/","calcul-droits-celiapp/","self-employed-tax-calculator/","impot-travailleur-autonome-quebec/","quebec-self-employed-tax-calculator/","rrsp-tax-refund-calculator/","calcul-remboursement-reer/","freelancer-tax-set-aside-calculator/","acomptes-provisionnels-travailleur-autonome-quebec/","quebec-tax-instalments-calculator/","calcul-droits-celi/","1099-self-employment-tax-calculator/","texas-paycheck-calculator/","homebrew-calculator/","privacy/"]
-NEWP={"","tfsa-contribution-room-calculator/","calcul-droits-celi/","1099-self-employment-tax-calculator/","texas-paycheck-calculator/"}
+paths=["","tfsa-contribution-room-calculator/","fhsa-contribution-room-calculator/","calcul-droits-celiapp/","self-employed-tax-calculator/","impot-travailleur-autonome-quebec/","quebec-self-employed-tax-calculator/","rrsp-tax-refund-calculator/","calcul-remboursement-reer/","freelancer-tax-set-aside-calculator/","acomptes-provisionnels-travailleur-autonome-quebec/","quebec-tax-instalments-calculator/","calcul-droits-celi/","1099-self-employment-tax-calculator/","texas-paycheck-calculator/","california-paycheck-calculator/","uk-vat-calculator/","vat-flat-rate-scheme-calculator/","impot-travailleur-autonome-ontario-cb-alberta/","homebrew-calculator/","privacy/"]
+NEWP={"","tfsa-contribution-room-calculator/","calcul-droits-celi/","1099-self-employment-tax-calculator/","texas-paycheck-calculator/","self-employed-tax-calculator/","california-paycheck-calculator/","uk-vat-calculator/","vat-flat-rate-scheme-calculator/","impot-travailleur-autonome-ontario-cb-alberta/"}
 open("sitemap.xml","w").write('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'+"".join(f"<url><loc>{BASE+p}</loc><lastmod>{NEWUPD if p in NEWP else UPD}</lastmod></url>\n" for p in paths)+"</urlset>\n")
 bots=["Googlebot","Bingbot","OAI-SearchBot","ChatGPT-User","GPTBot","PerplexityBot","Perplexity-User","ClaudeBot","Claude-SearchBot","Google-Extended","Applebot","Applebot-Extended","DuckDuckBot","CCBot"]
 open("robots.txt","w").write("".join(f"User-agent: {b}\nAllow: /\n\n" for b in bots)+"User-agent: *\nAllow: /\n\nSitemap: "+BASE+"sitemap.xml\n")
@@ -475,6 +480,10 @@ open("llms.txt","w").write(f"""# NorthLedger Tools
 - [Acomptes provisionnels 2026, travailleur autonome Québec]({BASE}acomptes-provisionnels-travailleur-autonome-quebec/) ([English]({BASE}quebec-tax-instalments-calculator/)): quarterly instalments to Revenu Québec (tax + QPP + QPIP + FSS) and the CRA (federal tax after abatement); $1,800 threshold; current-year and prior-year methods; due Mar 15, Jun 15, Sep 15, Dec 15.
 - [1099 Self-Employment Tax Calculator 2026 (US)]({BASE}1099-self-employment-tax-calculator/): federal self-employment tax (15.3% of 92.35%, Social Security wage base $184,500), income tax with the QBI deduction, and quarterly estimated payments per IRS Form 1040-ES.
 - [Texas Paycheck Calculator 2026 (US)]({BASE}texas-paycheck-calculator/): take-home pay from hourly or salary, overtime and bonus using IRS Pub. 15-T; Texas has no state income tax.
+- [California Paycheck Calculator 2026 (US)]({BASE}california-paycheck-calculator/): take-home pay with California EDD Method B withholding, SDI 1.3% (no wage cap), daily overtime and double time, 401(k) and bonus (10.23% state / 22% federal).
+- [UK VAT Calculator 2026]({BASE}uk-vat-calculator/): add or remove VAT at 20%, 5% and 0%; VAT registration deadline and effective date from the £90,000 threshold rules.
+- [VAT Flat Rate Scheme Calculator 2026 (UK)]({BASE}vat-flat-rate-scheme-calculator/): HMRC sector flat rates, 16.5% limited cost test and 1% first-year discount compared with standard VAT accounting.
+- [Calcul impôt travailleur autonome 2026, Ontario / C.-B. / Alberta]({BASE}impot-travailleur-autonome-ontario-cb-alberta/) ([English]({BASE}self-employed-tax-calculator/)): federal + provincial tax and RPC/RPC2.
 - [Homebrew calculator]({BASE}homebrew-calculator/): ABV (OG−FG)×131.25, IBU (Tinseth), SRM (Morey), priming sugar.
 
 ## Paid spreadsheets (Excel / Google Sheets / LibreOffice)
