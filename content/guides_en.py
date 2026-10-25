@@ -260,7 +260,7 @@ Total CPP is $5,533.50. Of that, base CPP is 9.9% × $46,500 = $4,603.50 and the
  rel=["which-tax-instalment-method", "how-we-check-our-numbers"], cta="se")
 
 # ======================= 6. Instalment method =======================
-INS = CRA.replace("/individuals/topics/", "/payments/payments-cra/individual-payments/income-tax-instalments/")
+INS = "https://www.canada.ca/en/revenue-agency/services/payments/payments-cra/individual-payments/income-tax-instalments/"
 INS_OPT = "https://www.canada.ca/en/revenue-agency/services/payments/payments-cra/individual-payments/income-tax-instalments/options-calculate.html"
 INS_WHO = "https://www.canada.ca/en/revenue-agency/services/payments/payments-cra/individual-payments/income-tax-instalments/who-pays-instalments.html"
 guide(lang="en", slug="which-tax-instalment-method", group="Self-employed and freelancers",

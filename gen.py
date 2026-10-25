@@ -2,15 +2,15 @@ import json,os,html,datetime
 BASE="https://northledgertools.com/"; G="https://northledgertools.gumroad.com/l/"
 UPD="2026-10-18"; BRAND="NorthLedger Tools"
 def faq_ld(faq): return {"@type":"FAQPage","mainEntity":[{"@type":"Question","name":q,"acceptedAnswer":{"@type":"Answer","text":a}} for q,a in faq]}
-def app_ld(name,url,desc,cat="FinanceApplication",lang="en-CA"):
+def app_ld(name,url,desc,cat="FinanceApplication",lang="en-CA",cur="CAD"):
     return {"@type":"WebApplication","name":name,"url":url,"description":desc,"applicationCategory":cat,"operatingSystem":"Any (web browser)","inLanguage":lang,
-            "isAccessibleForFree":True,"offers":{"@type":"Offer","price":"0","priceCurrency":"CAD"},"publisher":{"@type":"Organization","name":BRAND,"url":BASE}}
-def page(path,title,desc,body,lang="en",ld=None,alt=None,script="",extra=""):
-    url=BASE+path; L="fr-CA" if lang=="fr" else "en-CA"
+            "isAccessibleForFree":True,"offers":{"@type":"Offer","price":"0","priceCurrency":cur},"publisher":{"@type":"Organization","name":BRAND,"url":BASE}}
+def page(path,title,desc,body,lang="en",ld=None,alt=None,script="",extra="",upd=None,loc=None,libs=""):
+    url=BASE+path; L=loc or ("fr-CA" if lang=="fr" else "en-CA")
     hl="".join(f'<link rel="alternate" hreflang="{h}" href="{BASE+p}">' for h,p in (alt or []))
     if alt: hl+=f'<link rel="alternate" hreflang="x-default" href="{BASE+[p for h,p in alt if h.startswith("en")][0]}">'
     ldj=f'<script type="application/ld+json">{json.dumps({"@context":"https://schema.org","@graph":ld},ensure_ascii=False)}</script>' if ld else ""
-    nav=('<nav><a href="/tfsa-contribution-room-calculator/">TFSA</a><a href="/fhsa-contribution-room-calculator/">FHSA</a><a href="/rrsp-tax-refund-calculator/">RRSP</a><a href="/self-employed-tax-calculator/">Self-employed tax</a><a href="/freelancer-tax-set-aside-calculator/">Set-aside</a><a href="/impot-travailleur-autonome-quebec/">Québec</a><a href="/homebrew-calculator/">Homebrew</a></nav>')
+    nav=('<nav><a href="/tfsa-contribution-room-calculator/">TFSA</a><a href="/fhsa-contribution-room-calculator/">FHSA</a><a href="/rrsp-tax-refund-calculator/">RRSP</a><a href="/self-employed-tax-calculator/">Self-employed tax</a><a href="/freelancer-tax-set-aside-calculator/">Set-aside</a><a href="/impot-travailleur-autonome-quebec/">Québec</a><a href="/1099-self-employment-tax-calculator/">US tax</a><a href="/homebrew-calculator/">Homebrew</a></nav>')
     foot=("Fait au Canada. Aucun suivi, aucun témoin, aucune publicité. Les calculs se font dans votre navigateur." if lang=="fr" else
           "Made in Canada. No tracking, no cookies, no ads. Calculations run in your browser; nothing you type is sent anywhere.")
     doc=f'''<!doctype html><html lang="{L}"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
@@ -18,8 +18,8 @@ def page(path,title,desc,body,lang="en",ld=None,alt=None,script="",extra=""):
 <meta property="og:title" content="{html.escape(title)}"><meta property="og:description" content="{html.escape(desc)}"><meta property="og:url" content="{url}"><meta property="og:type" content="website"><meta property="og:site_name" content="{BRAND}">
 <meta name="theme-color" content="#1F3A5F">{extra}<link rel="stylesheet" href="/assets/style.css"><link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">{ldj}</head>
 <body><header class="top"><div class="w"><a class="brand" href="/">North<span>Ledger</span> Tools</a>{nav}</div></header><main class="w">{body}</main>
-<footer><div class="w">{foot} · <a href="/privacy/">{"Confidentialité" if lang=="fr" else "Privacy"}</a> · {"Mis à jour le" if lang=="fr" else "Updated"} {UPD}</div></footer>
-<script src="/assets/engine.js"></script>{script}</body></html>'''
+<footer><div class="w">{foot} · <a href="/privacy/">{"Confidentialité" if lang=="fr" else "Privacy"}</a> · {"Mis à jour le" if lang=="fr" else "Updated"} {upd or UPD}</div></footer>
+<script src="/assets/engine.js"></script>{libs}{script}</body></html>'''
     os.makedirs(path or ".",exist_ok=True); open(os.path.join(path,"index.html") if path else "index.html","w").write(doc)
 def faqhtml(faq,h="Frequently asked questions"): return f"<h2>{h}</h2>"+"".join(f"<details><summary>{html.escape(q)}</summary><p>{html.escape(a)}</p></details>" for q,a in faq)
 def src(items,h="Sources"): return f"<h2>{h}</h2><ul>"+"".join(f'<li><a href="{u}" rel="noopener">{html.escape(t)}</a></li>' for t,u in items)+"</ul>"
@@ -64,7 +64,8 @@ o.innerHTML=`<p>TFSA room left for 2026</p><p class=big>${f(last.left)}</p>`+(la
 (over&&last.left>=0?`<p class=bad>Note: you appear to have been over your limit in ${over.year}.</p>`:"")+`<p class=hint>On January 1, 2027 you will also get back the ${f(last.wd)} withdrawn in 2026, plus the 2027 limit (not yet announced).</p>`+t;o.scrollIntoView({behavior:"smooth"});};</script>'''
 page("tfsa-contribution-room-calculator/","TFSA Contribution Room Calculator 2026 (Free, Year by Year) | NorthLedger Tools",
  "Free TFSA room calculator for 2026: enter your birth year and contributions to see your room left, year by year from 2009 using CRA limits ($7,000 for 2026).",
- body,ld=[app_ld("TFSA Contribution Room Calculator 2026",BASE+"tfsa-contribution-room-calculator/","Calculates Canadian TFSA contribution room year by year from 2009 using CRA annual limits."),faq_ld(faq)],script=js)
+ body,ld=[app_ld("TFSA Contribution Room Calculator 2026",BASE+"tfsa-contribution-room-calculator/","Calculates Canadian TFSA contribution room year by year from 2009 using CRA annual limits."),faq_ld(faq)],script=js,
+ alt=[("en-CA","tfsa-contribution-room-calculator/"),("fr-CA","calcul-droits-celi/")],upd="2026-10-25")
 
 # ---------- ROC self-employed ----------
 faq=[("How much CPP does a self-employed person pay in 2026?","Self-employed people pay both the employee and employer shares: 11.9% of net self-employment earnings between $3,500 and $74,600 (maximum $8,460.90), plus the second additional contribution (CPP2) of 8% on earnings between $74,600 and $85,000 (maximum $832). If you also have employment income, contributions already paid through your job reduce what you owe."),
@@ -423,9 +424,11 @@ o.innerHTML="<div class=scroll><table><thead>"+row(...J.th)+"</thead><tbody>"+ro
 `<p class=hint>${J.dates}</p>`+(r.pQ!=null||r.pF!=null?`<p class=hint>${J.low}</p>`:"");o.scrollIntoView({behavior:"smooth"});};</script>'''
     page(t["path"],t["title"],t["desc"],body,lang=lg,alt=ialt,ld=[app_ld(t["h1"],BASE+t["path"],t["desc"],lang="fr-CA" if lg=="fr" else "en-CA"),faq_ld(t["faq"])],script=js)
 
+exec(open("pages_new.py",encoding="utf-8").read())
 # ---------- Home, privacy ----------
-body=f'''<h1>Free, accurate Canadian money calculators</h1><p class="lede">Simple calculators for TFSA and FHSA room and self-employed tax in Canada, built on rates published by the CRA and Revenu Québec, with the source cited on every page. No sign-up, no tracking, no ads.</p>
+body=f'''<h1>Free, accurate Canadian money calculators</h1><p class="lede">Simple calculators for TFSA and FHSA room and self-employed tax in Canada, built on rates published by the CRA and Revenu Québec, with the source cited on every page. A few US tools (1099 self-employment tax, paychecks) use IRS figures. No sign-up, no tracking, no ads.</p>
 <div class="tools"><a href="/tfsa-contribution-room-calculator/"><b>TFSA contribution room 2026</b>Room left this year, rebuilt year by year from 2009.</a>
+<a href="/calcul-droits-celi/" hreflang="fr-CA"><b>Droits de cotisation CELI 2026</b>Droits restants année par année depuis 2009.</a>
 <a href="/fhsa-contribution-room-calculator/"><b>FHSA contribution room 2026</b>Room for this year with carry-forward and the $40,000 lifetime limit.</a>
 <a href="/calcul-droits-celiapp/" hreflang="fr-CA"><b>Droits de participation CELIAPP 2026</b>Droits de l'année, report et plafond à vie.</a>
 <a href="/rrsp-tax-refund-calculator/"><b>RRSP tax refund 2026</b>Tax saved by your RRSP deduction: ON, QC, BC, AB.</a>
@@ -436,12 +439,14 @@ body=f'''<h1>Free, accurate Canadian money calculators</h1><p class="lede">Simpl
 <a href="/quebec-self-employed-tax-calculator/"><b>Quebec self-employed tax 2026 (English)</b>Quebec + federal tax, QPP, QPIP and FSS.</a>
 <a href="/acomptes-provisionnels-travailleur-autonome-quebec/" hreflang="fr-CA"><b>Acomptes provisionnels 2026 (Québec)</b>Montants trimestriels pour Revenu Québec et l'ARC.</a>
 <a href="/quebec-tax-instalments-calculator/"><b>Quebec tax instalments 2026 (English)</b>Quarterly amounts for Revenu Québec and the CRA.</a>
+<a href="/1099-self-employment-tax-calculator/"><b>US 1099 self-employment tax 2026</b>Federal SE tax, QBI deduction and quarterly estimates (USD).</a>
+<a href="/texas-paycheck-calculator/"><b>Texas paycheck 2026 (USD)</b>Hourly, overtime and bonus take-home; no state income tax.</a>
 <a href="/homebrew-calculator/"><b>Homebrew: ABV, IBU, priming</b>Hobby brewing calculators in metric or US units.</a></div>
 <h2>About</h2><p>NorthLedger Tools makes calculators and spreadsheets that show their work. Each free calculator here uses the same formulas as the matching NorthLedger spreadsheet, which adds year-round logging and tracking. You can find them on <a href="https://northledgertools.gumroad.com/">our Gumroad store</a>. Rates are updated when governments publish new figures, normally each January.</p>
 <p class="disc">These tools give estimates, not tax or financial advice. The Canada Revenue Agency and Revenu Québec are the official sources for your own situation.</p>'''
 page("","NorthLedger Tools: Free Canadian TFSA and Self-Employed Tax Calculators 2026",
  "Free, ad-free calculators for Canadians: TFSA, FHSA and RRSP 2026, freelancer tax set-aside and instalments, self-employed tax for Ontario, BC, Alberta and Quebec, plus homebrew calculators.",
- body,extra='<meta name="google-site-verification" content="bgydH5GCEgFakbRT0gUBnsEbqirokCbZlFyL7epcgsk" /><meta name="google-site-verification" content="NMIoLmLE4MjwpZiBJ10qdWgRSTdVe_NgjuytyJ4b114" />',ld=[{"@type":"WebSite","name":BRAND,"url":BASE,"inLanguage":"en-CA"},{"@type":"Organization","name":BRAND,"url":BASE}])
+ body,extra='<meta name="google-site-verification" content="bgydH5GCEgFakbRT0gUBnsEbqirokCbZlFyL7epcgsk" /><meta name="google-site-verification" content="NMIoLmLE4MjwpZiBJ10qdWgRSTdVe_NgjuytyJ4b114" />',ld=[{"@type":"WebSite","name":BRAND,"url":BASE,"inLanguage":"en-CA"},{"@type":"Organization","name":BRAND,"url":BASE}],upd=NEWUPD)
 body='''<h1>Privacy policy</h1><p><b>Effective October 12, 2026.</b></p>
 <p>NorthLedger Tools ("we") runs this website as a set of static pages hosted on GitHub Pages.</p>
 <h2>What we collect</h2><p>Nothing. The calculators run entirely in your web browser. The numbers you type are not sent to us or stored anywhere. We do not use cookies, analytics, advertising, tracking pixels or third-party scripts.</p>
@@ -451,8 +456,9 @@ body='''<h1>Privacy policy</h1><p><b>Effective October 12, 2026.</b></p>
 <h2>Contact and changes</h2><p>Questions about this policy can be sent through our Gumroad store page. If this policy changes, the updated version will be posted here with a new effective date.</p>'''
 page("privacy/","Privacy Policy | NorthLedger Tools","NorthLedger Tools collects no personal data: calculators run in your browser, with no cookies, analytics or ads.",body)
 # sitemap etc
-paths=["","tfsa-contribution-room-calculator/","fhsa-contribution-room-calculator/","calcul-droits-celiapp/","self-employed-tax-calculator/","impot-travailleur-autonome-quebec/","quebec-self-employed-tax-calculator/","rrsp-tax-refund-calculator/","calcul-remboursement-reer/","freelancer-tax-set-aside-calculator/","acomptes-provisionnels-travailleur-autonome-quebec/","quebec-tax-instalments-calculator/","homebrew-calculator/","privacy/"]
-open("sitemap.xml","w").write('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'+"".join(f"<url><loc>{BASE+p}</loc><lastmod>{UPD}</lastmod></url>\n" for p in paths)+"</urlset>\n")
+paths=["","tfsa-contribution-room-calculator/","fhsa-contribution-room-calculator/","calcul-droits-celiapp/","self-employed-tax-calculator/","impot-travailleur-autonome-quebec/","quebec-self-employed-tax-calculator/","rrsp-tax-refund-calculator/","calcul-remboursement-reer/","freelancer-tax-set-aside-calculator/","acomptes-provisionnels-travailleur-autonome-quebec/","quebec-tax-instalments-calculator/","calcul-droits-celi/","1099-self-employment-tax-calculator/","texas-paycheck-calculator/","homebrew-calculator/","privacy/"]
+NEWP={"","tfsa-contribution-room-calculator/","calcul-droits-celi/","1099-self-employment-tax-calculator/","texas-paycheck-calculator/"}
+open("sitemap.xml","w").write('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'+"".join(f"<url><loc>{BASE+p}</loc><lastmod>{NEWUPD if p in NEWP else UPD}</lastmod></url>\n" for p in paths)+"</urlset>\n")
 bots=["Googlebot","Bingbot","OAI-SearchBot","ChatGPT-User","GPTBot","PerplexityBot","Perplexity-User","ClaudeBot","Claude-SearchBot","Google-Extended","Applebot","Applebot-Extended","DuckDuckBot","CCBot"]
 open("robots.txt","w").write("".join(f"User-agent: {b}\nAllow: /\n\n" for b in bots)+"User-agent: *\nAllow: /\n\nSitemap: "+BASE+"sitemap.xml\n")
 open("llms.txt","w").write(f"""# NorthLedger Tools
@@ -460,13 +466,15 @@ open("llms.txt","w").write(f"""# NorthLedger Tools
 > Free, ad-free calculators for Canadians (2026 tax year), built on rates published by the Canada Revenue Agency and Revenu Québec. Each page cites its sources and links to a paid NorthLedger spreadsheet that adds year-round logging and tracking. Estimates only, not tax advice.
 
 ## Calculators
-- [TFSA Contribution Room Calculator 2026]({BASE}tfsa-contribution-room-calculator/): room rebuilt year by year from 2009 using CRA limits ($7,000 for 2026, $109,000 cumulative); withdrawals added back the following January 1.
+- [TFSA Contribution Room Calculator 2026]({BASE}tfsa-contribution-room-calculator/) ([français : CELI]({BASE}calcul-droits-celi/)): room rebuilt year by year from 2009 using CRA limits ($7,000 for 2026, $109,000 cumulative); withdrawals added back the following January 1.
 - [FHSA Contribution Room Calculator 2026]({BASE}fhsa-contribution-room-calculator/) ([français : CELIAPP]({BASE}calcul-droits-celiapp/)): participation room year by year from the year the first FHSA was opened; $8,000 annual, carry-forward capped at $8,000 (max $16,000 in a year), $40,000 lifetime; RRSP transfers use room; withdrawals do not restore it.
 - [Self-Employed Tax Calculator 2026, Ontario / BC / Alberta]({BASE}self-employed-tax-calculator/): federal + provincial income tax, CPP (11.9%, max $8,460.90) and CPP2 (8%, max $832) on self-employment income.
 - [Calcul impôt travailleur autonome Québec 2026]({BASE}impot-travailleur-autonome-quebec/) ([English]({BASE}quebec-self-employed-tax-calculator/)): Quebec + federal tax with 16.5% abatement, QPP 12.6% / 8%, QPIP 0.764%, Health Services Fund.
 - [RRSP Tax Refund Calculator 2026]({BASE}rrsp-tax-refund-calculator/) ([français : remboursement REER]({BASE}calcul-remboursement-reer/)): income tax with vs without the RRSP deduction for Ontario, Quebec, BC and Alberta (2026 federal 14%–33%, provincial brackets and credits, Quebec 16.5% abatement); 2026 RRSP dollar limit $33,810.
 - [Freelancer Tax Set-Aside Calculator 2026, ON / BC / AB]({BASE}freelancer-tax-set-aside-calculator/): % of each dollar of self-employment profit to save for income tax + CPP/CPP2, monthly target and quarterly instalments ($3,000 net tax owing threshold).
 - [Acomptes provisionnels 2026, travailleur autonome Québec]({BASE}acomptes-provisionnels-travailleur-autonome-quebec/) ([English]({BASE}quebec-tax-instalments-calculator/)): quarterly instalments to Revenu Québec (tax + QPP + QPIP + FSS) and the CRA (federal tax after abatement); $1,800 threshold; current-year and prior-year methods; due Mar 15, Jun 15, Sep 15, Dec 15.
+- [1099 Self-Employment Tax Calculator 2026 (US)]({BASE}1099-self-employment-tax-calculator/): federal self-employment tax (15.3% of 92.35%, Social Security wage base $184,500), income tax with the QBI deduction, and quarterly estimated payments per IRS Form 1040-ES.
+- [Texas Paycheck Calculator 2026 (US)]({BASE}texas-paycheck-calculator/): take-home pay from hourly or salary, overtime and bonus using IRS Pub. 15-T; Texas has no state income tax.
 - [Homebrew calculator]({BASE}homebrew-calculator/): ABV (OG−FG)×131.25, IBU (Tinseth), SRM (Morey), priming sugar.
 
 ## Paid spreadsheets (Excel / Google Sheets / LibreOffice)

@@ -143,6 +143,7 @@ CALC_LINKS = {   # calculator path -> guide slugs (en unless prefixed fr:)
  "calcul-droits-celiapp": ["fr:celiapp-et-regime-d-accession-a-la-propriete"],
  "rrsp-tax-refund-calculator": ["rrsp-deduction-limit-explained", "fhsa-and-home-buyers-plan"],
  "calcul-remboursement-reer": ["fr:date-limite-reer-et-plafond-de-cotisation"],
+ "calcul-droits-celi": ["fr:surcotisation-celi"],
  "self-employed-tax-calculator": ["self-employed-cpp-explained", "which-tax-instalment-method", "gst-hst-small-supplier-freelancers", "how-we-check-our-numbers"],
  "freelancer-tax-set-aside-calculator": ["which-tax-instalment-method", "self-employed-cpp-explained", "gst-hst-small-supplier-freelancers"],
  "quebec-self-employed-tax-calculator": ["how-we-check-our-numbers", "which-tax-instalment-method"],
