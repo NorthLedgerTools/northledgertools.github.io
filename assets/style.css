@@ -5,7 +5,7 @@ header.top a{color:#fff;text-decoration:none}.brand{font-weight:700;font-size:1.
 .w{max-width:880px;margin:0 auto;padding:1rem}h1{color:var(--navy);font-size:1.75rem;line-height:1.2;margin:.6rem 0}h2{color:var(--navy);font-size:1.25rem;margin-top:2rem}
 .lede{color:var(--mute);font-size:1.05rem}.card{background:#fff;border:1px solid var(--line);border-radius:10px;padding:1rem 1.1rem;margin:1rem 0}
 label{display:block;font-weight:600;font-size:.92rem;margin:.6rem 0 .2rem}input,select{width:100%;padding:.55rem .6rem;border:1px solid #b9c4d0;border-radius:6px;font-size:1rem;background:#fff}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:0 1rem}.hint{font-size:.82rem;color:var(--mute);font-weight:400}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:0 1rem}.grid>div{display:flex;flex-direction:column;justify-content:flex-end}.hint{font-size:.82rem;color:var(--mute);font-weight:400}
 button{background:var(--teal);color:#fff;border:0;border-radius:6px;padding:.65rem 1.1rem;font-size:1rem;font-weight:600;cursor:pointer;margin-top:.9rem}
 .result{border-left:5px solid var(--teal);background:#eef8f6}.big{font-size:1.6rem;font-weight:700;color:var(--navy)}.bad{color:var(--warn);font-weight:700}
 table{border-collapse:collapse;width:100%;font-size:.9rem}th,td{border-bottom:1px solid var(--line);padding:.35rem .4rem;text-align:right}th:first-child,td:first-child{text-align:left}
