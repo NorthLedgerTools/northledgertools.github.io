@@ -50,7 +50,7 @@ body=f'''<h1>TFSA Contribution Room Calculator 2026</h1>
 <h2>How the CRA counts TFSA room</h2><p>Your room for a year = unused room carried forward + withdrawals made in the previous year + the new annual limit. You earn the annual limit only for years in which you were at least 18 and resident in Canada at some point. Investment growth or losses inside the TFSA do not change your room.</p>
 <div class="scroll"><table><thead><tr><th>Years</th><th>Annual limit</th></tr></thead><tbody><tr><td>2009–2012</td><td>$5,000</td></tr><tr><td>2013–2014</td><td>$5,500</td></tr><tr><td>2015</td><td>$10,000</td></tr><tr><td>2016–2018</td><td>$5,500</td></tr><tr><td>2019–2022</td><td>$6,000</td></tr><tr><td>2023</td><td>$6,500</td></tr><tr><td>2024–2026</td><td>$7,000</td></tr><tr><td><b>Total 2009–2026</b></td><td><b>$109,000</b></td></tr></tbody></table></div>
 {faqhtml(faq)}
-{src([("CRA: Calculate your TFSA contribution room","https://www.canada.ca/en/revenue-agency/services/tax/individuals/topics/tax-free-savings-account/contributions.html"),("CRA: MP, DB, RRSP, DPSP, ALDA, TFSA limits, YMPE and YAMPE","https://www.canada.ca/en/revenue-agency/services/tax/registered-plans-administrators/pspa/mp-rrsp-dpsp-tfsa-limits-ympe.html")])}
+{src([("CRA: Calculate your TFSA contribution room","https://www.canada.ca/en/revenue-agency/services/tax/individuals/topics/tax-free-savings-account/contributing.html"),("CRA: MP, DB, RRSP, DPSP, ALDA, TFSA limits, YMPE and YAMPE","https://www.canada.ca/en/revenue-agency/services/tax/registered-plans-administrators/pspa/mp-rrsp-dpsp-tfsa-limits-ympe.html")])}
 <p class="disc">Not tax or financial advice. Estimates use CRA limits as of October 12, 2026 and assume you were resident for every year from the year you enter. It does not handle periods of non-residency after becoming a resident, qualifying transfers, or amounts the CRA has adjusted. Your CRA My Account is the official record; check it before contributing near your limit.</p>'''
 js='<script>'+FMT+money_en+'''$("go").onclick=()=>{const by=parseInt($("by").value),ry=parseInt($("ry").value)||2009,c={},w={};
 for(let y=2009;y<=2026;y++){c[y]=v("c"+y);w[y]=v("w"+y);}const o=$("out");o.hidden=false;
@@ -198,7 +198,7 @@ page("homebrew-calculator/","Homebrew Calculator: ABV, IBU, OG/FG & Priming Suga
 # ---------- FHSA EN + FR ----------
 FSRC=[("CRA: Participating in your FHSAs (participation room and carryforward)","https://www.canada.ca/en/revenue-agency/services/tax/individuals/topics/first-home-savings-account/contributing-your-fhsa.html"),
 ("CRA: First Home Savings Account (FHSA) overview","https://www.canada.ca/en/revenue-agency/services/tax/individuals/topics/first-home-savings-account.html"),
-("CRA: What happens if you contribute or transfer too much to your FHSAs","https://www.canada.ca/en/revenue-agency/services/tax/individuals/topics/first-home-savings-account/contributing-your-fhsa/excess-fhsa-amount.html")]
+("CRA: What happens if you contribute or transfer too much to your FHSAs","https://www.canada.ca/en/revenue-agency/services/tax/individuals/topics/first-home-savings-account/what-happens-contribute-transfer-too-much.html")]
 FT={"en":dict(path="fhsa-contribution-room-calculator/",title="FHSA Contribution Room Calculator 2026 (Carry-Forward Included) | NorthLedger Tools",
  desc="Free FHSA participation room calculator for 2026: enter the year you opened your FHSA and what you put in each year to see your room, carry-forward and lifetime room left.",
  h1="FHSA Contribution Room Calculator 2026",
