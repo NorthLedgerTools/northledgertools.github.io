@@ -37,6 +37,14 @@ FR_GUIDES={
 "guides-fr/cotisations-travailleur-autonome-quebec-2026/":("Cotisations du travailleur autonome au Québec","RRQ, RQAP et FSS"),
 "guides-fr/acomptes-provisionnels-quelle-methode/":("Acomptes provisionnels : quelle méthode choisir","les trois méthodes et un exemple chiffré"),
 }
+CA_GUIDES={ # English Canadian guides (Growth request 2026-10-26: at least 6 inbound links each)
+"guides/gst-hst-small-supplier-freelancers/":("GST/HST small supplier rule for freelancers","when a freelancer must register, with the single-quarter and four-quarter tests"),
+"guides/how-the-tfsa-limit-is-set/":("How the TFSA annual limit is set","the indexation rule and a year-by-year table since 2009"),
+"guides/rrsp-deduction-limit-explained/":("RRSP deduction limit explained","how the limit is built, the 2026 and 2027 limits and the March 1 deadline"),
+"guides/tfsa-over-contribution-penalty/":("TFSA over-contribution penalty","how the 1% monthly tax on excess amounts works, with examples"),
+}
+CA_GUIDE_HOSTS=["tfsa-contribution-room-calculator/","fhsa-contribution-room-calculator/","rrsp-tax-refund-calculator/","self-employed-tax-calculator/","quebec-self-employed-tax-calculator/",
+"quebec-tax-instalments-calculator/","freelancer-tax-set-aside-calculator/","guides/fhsa-and-home-buyers-plan/","guides/self-employed-cpp-explained/","guides/which-tax-instalment-method/"]
 def lst(paths,table,self_path):
     return "<ul>"+"".join(f'<li><a href="/{p}">{table[p][0]}</a>: {table[p][1]}.</li>' for p in paths if p!=self_path)+"</ul>"
 def block(path):
@@ -57,9 +65,15 @@ def block(path):
     if path in CA_EN and path in ("quebec-self-employed-tax-calculator/","quebec-tax-instalments-calculator/","self-employed-tax-calculator/","freelancer-tax-set-aside-calculator/"):
         return ("<h2>Related calculators</h2>"+lst(["self-employed-tax-calculator/","quebec-self-employed-tax-calculator/","quebec-tax-instalments-calculator/","freelancer-tax-set-aside-calculator/","rrsp-tax-refund-calculator/"],CA_EN,path))
     return None
+def guides_block(path):
+    if path in CA_GUIDES or path in CA_GUIDE_HOSTS:
+        return "<h2>Related Canadian tax guides</h2><p>More guides on limits, deadlines and registration:</p>"+lst(list(CA_GUIDES),CA_GUIDES,path)
+    return None
 def inject(path,html):
     html=re.sub(r"<!--nl-x-->.*?<!--/nl-x-->","",html,flags=re.S)
     b=block(path)
+    g=guides_block(path)
+    if g: b=(b or "")+g
     if not b: return html
     return html.replace("</main>",BASE_MARK[0]+b+BASE_MARK[1]+"</main>",1)
 def home(html):
@@ -84,7 +98,7 @@ def tools_json():
     open("tools.json","w",encoding="utf-8").write(json.dumps(out,ensure_ascii=False,indent=1)+"\n")
 def main():
     tools_json()
-    for table in (EN,CA_EN,FR_CALC,FR_GUIDES):
+    for table in (EN,CA_EN,FR_CALC,FR_GUIDES,CA_GUIDES,dict.fromkeys(CA_GUIDE_HOSTS)):
         for p in table:
             f=p+"index.html"; s=open(f,encoding="utf-8").read(); open(f,"w",encoding="utf-8").write(inject(p,s))
     f="guides/index.html"; s=open(f,encoding="utf-8").read(); open(f,"w",encoding="utf-8").write(inject("guides/",s))
