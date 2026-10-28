@@ -6,6 +6,7 @@ Run order:  python3 gen.py && python3 guides_gen.py   (safe to re-run)
 """
 import json, os, html, re, sys
 from guides_lib import *
+from brand_head import head_extra
 import guides_lib
 # ---------------- page shell ----------------
 STYLE = """<style>.callout{background:#eef8f6;border-left:5px solid #2A9D8F;padding:.7rem 1rem;margin:1rem 0;border-radius:0 8px 8px 0}
@@ -33,7 +34,7 @@ def shell(path, title, desc, body, lang, ld, alt=None):
     doc = f'''<!doctype html><html lang="{L}"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>{e(title)}</title><meta name="description" content="{e(desc)}"><link rel="canonical" href="{url}">{hl}
 <meta property="og:title" content="{e(title)}"><meta property="og:description" content="{e(desc)}"><meta property="og:url" content="{url}"><meta property="og:type" content="article"><meta property="og:site_name" content="{BRAND}">
-<meta name="theme-color" content="#1F3A5F"><link rel="stylesheet" href="/assets/style.css">{STYLE}<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">{ldj}</head>
+<meta name="theme-color" content="#1F3A5F"><link rel="stylesheet" href="/assets/style.css">{STYLE}{head_extra(path)}{ldj}</head>
 <body><header class="top"><div class="w"><a class="brand" href="/">North<span>Ledger</span> Tools</a>{nav_html(lang)}</div></header><main class="w">{body}</main>
 <footer><div class="w">{foot} · <a href="/privacy/">{"Confidentialité" if lang == "fr" else "Privacy"}</a> · {"Mis à jour le" if lang == "fr" else "Updated"} {UPD}</div></footer></body></html>'''
     os.makedirs(path, exist_ok=True)

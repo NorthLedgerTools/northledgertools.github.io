@@ -6,6 +6,7 @@ def app_ld(name,url,desc,cat="FinanceApplication",lang="en-CA",cur="CAD"):
     return {"@type":"WebApplication","name":name,"url":url,"description":desc,"applicationCategory":cat,"operatingSystem":"Any (web browser)","inLanguage":lang,
             "isAccessibleForFree":True,"offers":{"@type":"Offer","price":"0","priceCurrency":cur},"publisher":{"@type":"Organization","name":BRAND,"url":BASE}}
 from seo_meta import meta as _meta
+from brand_head import head_extra, ICON_LINKS
 def page(path,title,desc,body,lang="en",ld=None,alt=None,script="",extra="",upd=None,loc=None,libs=""):
     title,desc=_meta(path,title,desc)
     url=BASE+path; L=loc or ("fr-CA" if lang=="fr" else "en-CA")
@@ -18,7 +19,7 @@ def page(path,title,desc,body,lang="en",ld=None,alt=None,script="",extra="",upd=
     doc=f'''<!doctype html><html lang="{L}"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>{html.escape(title)}</title><meta name="description" content="{html.escape(desc)}"><link rel="canonical" href="{url}">{hl}
 <meta property="og:title" content="{html.escape(title)}"><meta property="og:description" content="{html.escape(desc)}"><meta property="og:url" content="{url}"><meta property="og:type" content="website"><meta property="og:site_name" content="{BRAND}">
-<meta name="theme-color" content="#1F3A5F">{extra}<link rel="stylesheet" href="/assets/style.css"><link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">{ldj}</head>
+<meta name="theme-color" content="#1F3A5F">{extra}<link rel="stylesheet" href="/assets/style.css">{head_extra(path)}{ldj}</head>
 <body><header class="top"><div class="w"><a class="brand" href="/">North<span>Ledger</span> Tools</a>{nav}</div></header><main class="w">{body}</main>
 <footer><div class="w">{foot} · <a href="/privacy/">{"Confidentialité" if lang=="fr" else "Privacy"}</a> · {"Mis à jour le" if lang=="fr" else "Updated"} {upd or UPD}</div></footer>
 <script src="/assets/engine.js"></script>{libs}{script}</body></html>'''
@@ -504,7 +505,7 @@ open("llms.txt","w").write(f"""# NorthLedger Tools
 - [Privacy]({BASE}privacy/): no cookies, analytics or data collection.
 """)
 open("assets/favicon.svg","w").write('<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><rect width="32" height="32" rx="6" fill="#1F3A5F"/><path d="M8 24V8l16 16V8" stroke="#2A9D8F" stroke-width="4" fill="none"/></svg>')
-open("404.html","w").write('<!doctype html><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><title>Not found | NorthLedger Tools</title><link rel=stylesheet href="/assets/style.css"><main class=w><h1>Page not found</h1><p><a href="/">Go to NorthLedger Tools home</a></p></main>')
+open("404.html","w").write('<!doctype html><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><title>Not found | NorthLedger Tools</title><link rel=stylesheet href="/assets/style.css">'+ICON_LINKS+'<main class=w><h1>Page not found</h1><p><a href="/">Go to NorthLedger Tools home</a></p></main>')
 open(".nojekyll","w").write("")
 open("CNAME","w").write("northledgertools.com")
 print("generated")
