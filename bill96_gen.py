@@ -158,35 +158,15 @@ def nav_html(lang='en'):
             '<a href="/1099-self-employment-tax-calculator/">US tax</a><a href="/guides/">Guides</a></nav>')
 
 # ---------- Pricing section (OFF unless --pricing; Auditor must read it first) ----------
-TAX_EN = "Prices are in Canadian dollars. No GST, HST or QST is added to these prices at this time. If that changes, we'll tell you before you confirm an order."
-TAX_FR = "Les prix sont en dollars canadiens. Ni la TPS, ni la TVH, ni la TVQ ne sont ajoutées à ces prix pour le moment. Si cela change, nous vous le dirons avant que vous confirmiez une commande."
-PRICE = {
- "en": {"h": "Prices",
-  "intro": "Besides this free checklist, NorthLedger Tools offers AI-assisted Québec-French drafts of store text, each with a checklist of items to review. Launch prices, which may change:",
-  "items": [
-   ("Free gap-check.", "We run this checklist on the public pages of your store and email you a short list of possible gaps and items to review. It is general information, not legal advice."),
-   ("Policy set: C$129.", "French (Québec) versions of up to 4 store policy pages, about 2,500 words in total."),
-   ("Product descriptions: C$4 each (first 25).", "The price applies to the first 25 descriptions in one order, up to about 150 words each. Pricing for more is quoted on request."),
-   ("Small-store pack: C$399.", "The policy set, up to 25 product descriptions, store interface strings (menus, buttons, checkout and email templates, up to about 800 words) and one round of revisions. Launch price."),
-  ],
-  "terms": "Delivery target: 5 business days after the scope and payment are confirmed. Every text is an AI-assisted Québec-French draft with a checklist. A review of the French by a native speaker is not included; it can be added as an optional extra, quoted at cost.",
-  "tax": TAX_EN,
-  "order": "To order or ask for a quote, write to the address in the section below. We confirm the scope and the payment details by email before you pay anything."},
- "fr": {"h": "Prix",
-  "intro": "En plus de cette liste gratuite, NorthLedger Tools offre des ébauches en français du Québec, rédigées avec l'aide de l'IA, pour les textes de votre boutique, chacune accompagnée d'une liste d'éléments à revoir. Prix de lancement, susceptibles de changer :",
-  "items": [
-   ("Vérification gratuite.", "Nous appliquons cette liste aux pages publiques de votre boutique et vous envoyons par courriel une courte liste d'écarts possibles et d'éléments à revoir. Information générale, pas un avis juridique."),
-   ("Ensemble de politiques : 129 $ CA.", "Versions en français (Québec) d'au plus 4 pages de politiques de la boutique, environ 2 500 mots au total."),
-   ("Descriptions de produits : 4 $ CA chacune (les 25 premières).", "Le prix s'applique aux 25 premières descriptions d'une même commande, d'au plus environ 150 mots chacune. Le prix pour un plus grand nombre est donné sur demande."),
-   ("Forfait petite boutique : 399 $ CA.", "L'ensemble de politiques, jusqu'à 25 descriptions de produits, les textes d'interface de la boutique (menus, boutons, modèles de paiement et de courriel, jusqu'à environ 800 mots) et une série de modifications. Prix de lancement."),
-  ],
-  "terms": "Délai visé : 5 jours ouvrables après la confirmation de la portée du travail et du paiement. Chaque texte est une ébauche en français du Québec rédigée avec l'aide de l'IA, accompagnée d'une liste de contrôle. Une révision du français par une personne de langue maternelle française n'est pas comprise; elle peut être ajoutée en option, sur soumission, au prix coûtant.",
-  "tax": TAX_FR,
-  "order": "Pour commander ou demander une soumission, écrivez à l'adresse indiquée dans la section ci-dessous. Nous confirmons la portée du travail et les modalités de paiement par courriel avant tout paiement."},
-}
+# The strings live in bill96_pricing.py, which is NOT copied into the public site repo unless --pricing is used.
+def load_pricing():
+    import importlib.util
+    pth = os.path.join(HERE, "bill96_pricing.py")
+    if not os.path.isfile(pth): sys.exit("bill96_gen: --pricing needs bill96_pricing.py next to the generator")
+    sp = importlib.util.spec_from_file_location("bill96_pricing", pth); m = importlib.util.module_from_spec(sp); sp.loader.exec_module(m); return m
 def pricing_html(lang):
     if not PRICING: return ""
-    q = PRICE[lang]
+    q = load_pricing().PRICE[lang]
     lis = "".join(f"<li><b>{e(a)}</b> {e(b)}</li>" for a, b in q["items"])
     return (f'<h2 id="prices">{e(q["h"])}</h2><p>{e(q["intro"])}</p><ul>{lis}</ul><p>{e(q["terms"])}</p>'
             f'<p><b>{e(q["tax"])}</b></p><p>{e(q["order"])}</p>\n')
