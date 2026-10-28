@@ -23,7 +23,7 @@
 - [Calcul impôt travailleur autonome 2026, Ontario / C.-B. / Alberta](https://northledgertools.com/impot-travailleur-autonome-ontario-cb-alberta/) ([English](https://northledgertools.com/self-employed-tax-calculator/)): federal + provincial tax and RPC/RPC2.
 
 ## Québec French checklist for online stores (free, runs in the browser)
-- [Québec French checklist for online stores](https://northledgertools.com/quebec-french-gap-check/): ten questions give a copyable list of items to review for a French version of an online store, each with its official Québec source (Charter of the French language, OQLF, quebec.ca). General information, not legal advice.
+- [Québec French checklist for online stores](https://northledgertools.com/quebec-french-gap-check/) ([français](https://northledgertools.com/verification-francais-boutique-quebec/)): ten questions give a copyable list of items to review for a French version of an online store, each with its official Québec source (Charter of the French language, OQLF, quebec.ca). General information, not legal advice.
 
 ## Guides (worked examples, each figure sourced)
 - [TFSA over-contribution penalty: how the 1% a month is calculated](https://northledgertools.com/guides/tfsa-over-contribution-penalty/): The 1% monthly tax, the CRA's own examples, a cost-of-delay table and how to fix it.

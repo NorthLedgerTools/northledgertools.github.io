@@ -120,6 +120,12 @@
    "url": "https://northledgertools.com/vat-flat-rate-scheme-calculator/",
    "description": "Free UK VAT Flat Rate Scheme calculator: pick your sector, apply the 16.5% limited cost test and 1% first-year discount, compare with standard VAT.",
    "language": "en-GB"
+  },
+  {
+   "name": "Boutique en ligne en français : liste à revoir (Québec)",
+   "url": "https://northledgertools.com/verification-francais-boutique-quebec/",
+   "description": "Liste gratuite d'éléments à revoir pour offrir votre boutique en ligne en français, chacun avec sa source officielle québécoise. Dans votre navigateur.",
+   "language": "fr-CA"
   }
  ],
  "guides": [
