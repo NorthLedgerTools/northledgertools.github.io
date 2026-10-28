@@ -1,0 +1,464 @@
+{
+ "version": "0.1.0",
+ "checked_on": "2026-10-26",
+ "disclaimer_en": "General information only, not legal advice. This tool lists possible gaps and items to review; it does not decide whether any business meets any law. It is AI-assisted and has not been reviewed by a lawyer. Any French text it helps produce needs review by a qualified human translator or native French speaker before use.",
+ "disclaimer_fr": "Information générale seulement, pas un avis juridique. Cet outil énumère des écarts possibles et des éléments à revoir; il ne détermine pas si une entreprise respecte une loi. Il est conçu avec l'aide de l'IA et n'a pas été révisé par un juriste. Tout texte français qu'il aide à produire doit être révisé par une personne traductrice qualifiée ou de langue maternelle française avant d'être utilisé.",
+ "sources": {
+  "C11-EN": {
+   "title": "Charter of the French language (CQLR c. C-11), English text, Légis Québec (current to 15 October 2026 when read)",
+   "url": "https://www.legisquebec.gouv.qc.ca/fr/document/lc/c-11?langCont=en",
+   "local": "sources/c11_en.txt"
+  },
+  "C11-FR": {
+   "title": "Charte de la langue française (RLRQ, c. C-11), texte français, Légis Québec (à jour au 15 octobre 2026 à la lecture)",
+   "url": "https://www.legisquebec.gouv.qc.ca/fr/document/lc/C-11",
+   "local": "sources/c11_fr.txt"
+  },
+  "OQLF-FICHE": {
+   "title": "OQLF, fiche « Médias sociaux, sites Web et documents publicitaires » (PDF, 2022; states that its content has no legal value)",
+   "url": "https://www.oqlf.gouv.qc.ca/francisation/entreprises/memo-assistant-francisation/publications/fiche-medias-sociaux-sites-web-doc-publicitaires.pdf",
+   "local": "sources/fiche.txt"
+  },
+  "QC-OBLIG": {
+   "title": "Gouvernement du Québec, « Obligations des commerces, des entreprises, des ordres professionnels et de l'Administration en matière de langue française » (last updated 5 August 2026)",
+   "url": "https://www.quebec.ca/culture/langue-francaise/exercer-droits-langue-francaise/obligations",
+   "local": "sources/quebec_ca_obligations.txt"
+  },
+  "OQLF-FAQ": {
+   "title": "OQLF, Foire aux questions (page updated 2026-09-29)",
+   "url": "https://www.oqlf.gouv.qc.ca/francisation/respect/faq.html",
+   "local": "sources/faq.txt"
+  },
+  "OTTIAQ": {
+   "title": "OTTIAQ, position on artificial intelligence in translation (16 October 2024). A professional order's position for its members, not a law.",
+   "url": "https://ottiaq.org/app/uploads/2025/08/24_ottiaq_avis_en.pdf",
+   "local": "sources/ottiaq.txt"
+  },
+  "OQLF-VOCAB": {
+   "title": "OQLF, Vocabulaire du commerce électronique (PDF, read 2026-10-26)",
+   "url": "https://www.oqlf.gouv.qc.ca/ressources/bibliotheque/dictionnaires/VocabulairesPDF/vocabulaire-commerce-electronique.pdf",
+   "local": "sources/vocab.txt"
+  },
+  "NA-BILL96": {
+   "title": "National Assembly of Québec, page for Bill 96, An Act respecting French, the official and common language of Québec (read 2026-10-26)",
+   "url": "https://www.assnat.qc.ca/en/travaux-parlementaires/projets-loi/projet-loi-96-42-1.html",
+   "local": "sources/bill96_assnat.txt"
+  }
+ },
+ "rules": [
+  {
+   "id": "R-SITE",
+   "area": "website",
+   "label_en": "French version of the website",
+   "label_fr": "Version française du site Web",
+   "review_en": "No French version of this page or site was detected. Items to review: is the site, including product pages, available in French?",
+   "review_fr": "Aucune version française de cette page ou de ce site n'a été détectée. À revoir : le site, y compris les fiches de produits, est-il offert en français?",
+   "sources": [
+    "OQLF-FICHE",
+    "QC-OBLIG",
+    "C11-EN s.52"
+   ],
+   "quotes": [
+    {
+     "src": "OQLF-FICHE",
+     "lang": "fr",
+     "text": "Si votre entreprise fait des affaires au Québec, son site Web doit être accessible en français."
+    },
+    {
+     "src": "OQLF-FICHE",
+     "lang": "fr",
+     "text": "Votre site peut être accessible en plusieurs langues, mais l’ensemble du contenu doit être offert en français (y compris les fiches de vos produits) et être de qualité équivalente."
+    },
+    {
+     "src": "QC-OBLIG",
+     "lang": "fr",
+     "text": "Rendre accessibles en français les catalogues, les publicités et les sites Web;"
+    }
+   ]
+  },
+  {
+   "id": "R-LISTINGS",
+   "area": "product_listings",
+   "label_en": "Product listings and catalogues",
+   "label_fr": "Fiches de produits et catalogues",
+   "review_en": "Review whether product listings and catalogues are available in French on terms at least as favourable as the other-language version.",
+   "review_fr": "Vérifier si les fiches de produits et les catalogues sont offerts en français à des conditions au moins aussi favorables que la version dans une autre langue.",
+   "sources": [
+    "C11-EN s.52",
+    "OQLF-FICHE"
+   ],
+   "quotes": [
+    {
+     "src": "C11-EN",
+     "section": "52",
+     "lang": "en",
+     "text": "Regardless of the medium used, catalogues, brochures, folders, commercial directories, order forms and any other documents of the same nature that are available to the public must be drawn up in French."
+    },
+    {
+     "src": "C11-EN",
+     "section": "52",
+     "lang": "en",
+     "text": "No person may make such a document available to the public in a language other than French if the French version is not available on terms that are at least as favourable."
+    },
+    {
+     "src": "C11-FR",
+     "section": "52",
+     "lang": "fr",
+     "text": "Quel qu’en soit le support, les catalogues, les brochures, les dépliants, les annuaires commerciaux, les bons de commande et tout autre document de même nature qui sont disponibles au public doivent être rédigés en français."
+    }
+   ]
+  },
+  {
+   "id": "R-ORDER",
+   "area": "checkout",
+   "label_en": "Cart, checkout and order forms",
+   "label_fr": "Panier, paiement et bons de commande",
+   "review_en": "Review whether the cart, checkout and order form are available in French.",
+   "review_fr": "Vérifier si le panier, la page de paiement et le bon de commande sont offerts en français.",
+   "sources": [
+    "C11-EN s.52"
+   ],
+   "quotes": [
+    {
+     "src": "C11-EN",
+     "section": "52",
+     "lang": "en",
+     "text": "Regardless of the medium used, catalogues, brochures, folders, commercial directories, order forms and any other documents of the same nature that are available to the public must be drawn up in French."
+    }
+   ]
+  },
+  {
+   "id": "R-TERMS",
+   "area": "terms",
+   "label_en": "Terms of sale and other pre-determined contracts",
+   "label_fr": "Conditions de vente et autres contrats d'adhésion",
+   "review_en": "Review whether the terms of sale / terms of service (and the documents related to them, which may include shipping and returns conditions) are available in French.",
+   "review_fr": "Vérifier si les conditions de vente ou d'utilisation (et les documents qui s'y rattachent, qui peuvent comprendre les conditions de livraison et de retour) sont offertes en français.",
+   "sources": [
+    "C11-EN s.55"
+   ],
+   "quotes": [
+    {
+     "src": "C11-EN",
+     "section": "55",
+     "lang": "en",
+     "text": "Contracts pre-determined by one party and the related documents, must be drawn up in French."
+    },
+    {
+     "src": "C11-FR",
+     "section": "55",
+     "lang": "fr",
+     "text": "Les contrats d’adhésion ainsi que les documents qui s’y rattachent sont rédigés en français."
+    }
+   ]
+  },
+  {
+   "id": "R-POLICIES",
+   "area": "policies",
+   "label_en": "Shipping, returns and privacy pages",
+   "label_fr": "Pages sur la livraison, les retours et la confidentialité",
+   "review_en": "Review whether the shipping, returns and privacy pages are available in French. The Charter does not name these pages one by one; the OQLF fiche says the whole content of the site should be offered in French, and s. 55 covers documents related to a contract.",
+   "review_fr": "Vérifier si les pages sur la livraison, les retours et la confidentialité sont offertes en français. La Charte ne nomme pas ces pages une à une; la fiche de l'OQLF indique que l'ensemble du contenu du site doit être offert en français, et l'article 55 vise les documents qui se rattachent à un contrat.",
+   "sources": [
+    "OQLF-FICHE",
+    "C11-EN s.55"
+   ],
+   "quotes": [
+    {
+     "src": "OQLF-FICHE",
+     "lang": "fr",
+     "text": "l’ensemble du contenu doit être offert en français (y compris les fiches de vos produits)"
+    },
+    {
+     "src": "C11-EN",
+     "section": "55",
+     "lang": "en",
+     "text": "Contracts pre-determined by one party and the related documents, must be drawn up in French."
+    }
+   ]
+  },
+  {
+   "id": "R-INVOICE",
+   "area": "invoices",
+   "label_en": "Invoices and receipts",
+   "label_fr": "Factures et reçus",
+   "review_en": "Not detectable from a public page. Review whether invoices, receipts and similar documents sent to Québec customers are available in French.",
+   "review_fr": "Non détectable à partir d'une page publique. Vérifier si les factures, reçus et documents semblables transmis aux clients du Québec sont offerts en français.",
+   "sources": [
+    "C11-EN s.57"
+   ],
+   "quotes": [
+    {
+     "src": "C11-EN",
+     "section": "57",
+     "lang": "en",
+     "text": "Invoices, receipts, acquittances and other documents of the same nature must be drawn up in French."
+    },
+    {
+     "src": "C11-FR",
+     "section": "57",
+     "lang": "fr",
+     "text": "Les factures, les reçus, les quittances et les autres documents de même nature sont rédigés en français."
+    }
+   ]
+  },
+  {
+   "id": "R-PRODUCT",
+   "area": "packaging",
+   "label_en": "Product labels, packaging, directions for use and warranty certificates",
+   "label_fr": "Étiquettes, emballages, modes d'emploi et certificats de garantie",
+   "review_en": "Not detectable from a public page. Review whether inscriptions on products, containers and packaging, and documents supplied with them (directions for use, warranty certificates), are in French. Section 51.1 has a specific rule for registered trademarks.",
+   "review_fr": "Non détectable à partir d'une page publique. Vérifier si les inscriptions sur les produits, contenants et emballages, et les documents qui les accompagnent (mode d'emploi, certificats de garantie), sont rédigés en français. L'article 51.1 prévoit une règle particulière pour les marques de commerce déposées.",
+   "sources": [
+    "C11-EN s.51",
+    "C11-EN s.51.1"
+   ],
+   "quotes": [
+    {
+     "src": "C11-EN",
+     "section": "51",
+     "lang": "en",
+     "text": "Every inscription on a product, on its container or on its wrapping, or on a document or object supplied with it, including the directions for use and the warranty certificates, must be drafted in French."
+    },
+    {
+     "src": "C11-FR",
+     "section": "51",
+     "lang": "fr",
+     "text": "Toute inscription sur un produit, sur son contenant ou sur son emballage, sur un document ou objet accompagnant ce produit, y compris le mode d’emploi et les certificats de garantie, doit être rédigée en français."
+    }
+   ]
+  },
+  {
+   "id": "R-ADS",
+   "area": "advertising",
+   "label_en": "Commercial advertising and social-media posts",
+   "label_fr": "Publicité commerciale et publications sur les médias sociaux",
+   "review_en": "Not detectable from a public page. Review whether commercial advertising, including commercial posts on your site and social media, is in French (or in French and another language with French markedly predominant).",
+   "review_fr": "Non détectable à partir d'une page publique. Vérifier si la publicité commerciale, y compris les publications commerciales sur votre site et les médias sociaux, est en français (ou en français et dans une autre langue, le français y figurant de façon nettement prédominante).",
+   "sources": [
+    "C11-EN s.58",
+    "OQLF-FICHE",
+    "C11-EN s.58.1"
+   ],
+   "quotes": [
+    {
+     "src": "C11-EN",
+     "section": "58",
+     "lang": "en",
+     "text": "Public signs and posters and commercial advertising must be in French."
+    },
+    {
+     "src": "C11-EN",
+     "section": "58",
+     "lang": "en",
+     "text": "They may also be both in French and in another language provided that French is markedly predominant."
+    },
+    {
+     "src": "OQLF-FICHE",
+     "lang": "fr",
+     "text": "Vous pouvez également publier du contenu dans une autre langue que le français, à condition que celui s’adressant à votre clientèle québécoise soit toujours accessible en français."
+    }
+   ]
+  },
+  {
+   "id": "R-SERVICE",
+   "area": "customer_service",
+   "label_en": "Customer messages and service",
+   "label_fr": "Messages et service à la clientèle",
+   "review_en": "Not detectable from a public page. Review how you inform and serve customers in French, including customers who write to you in French.",
+   "review_fr": "Non détectable à partir d'une page publique. Vérifier comment vous informez et servez vos clients en français, y compris ceux qui vous écrivent en français.",
+   "sources": [
+    "C11-EN s.5",
+    "C11-EN s.50.2"
+   ],
+   "quotes": [
+    {
+     "src": "C11-EN",
+     "section": "5",
+     "lang": "en",
+     "text": "Consumers of goods and services have a right to be informed and served in French."
+    },
+    {
+     "src": "C11-EN",
+     "section": "50.2",
+     "lang": "en",
+     "text": "An enterprise that offers goods or services to consumers must respect their right to be informed and served in French."
+    },
+    {
+     "src": "C11-FR",
+     "section": "50.2",
+     "lang": "fr",
+     "text": "L’entreprise qui offre au consommateur des biens ou des services doit respecter son droit d’être informé et servi en français."
+    }
+   ]
+  },
+  {
+   "id": "R-SOFTWARE",
+   "area": "software",
+   "label_en": "Software and games (only if you sell them)",
+   "label_fr": "Logiciels et ludiciels (seulement si vous en vendez)",
+   "review_en": "Only if you offer software or game software: review whether a French version is available.",
+   "review_fr": "Seulement si vous offrez des logiciels ou des ludiciels : vérifier si une version française est disponible.",
+   "sources": [
+    "C11-EN s.52.1"
+   ],
+   "quotes": [
+    {
+     "src": "C11-EN",
+     "section": "52.1",
+     "lang": "en",
+     "text": "All computer software, including game software and operating systems, whether installed or uninstalled, must be available in French unless no French version exists."
+    }
+   ]
+  }
+ ],
+ "facts": [
+  {
+   "id": "F-FINES",
+   "text_en": "According to the OQLF's FAQ, a person who refuses to correct a breach of the Charter is liable to a fine of $700 to $7,000 for a natural person and $3,000 to $30,000 for a legal person, doubled for a first repeat offence and tripled for each additional one. The OQLF does not issue offence notices or fines: the DPCP has that power and the courts impose fines.",
+   "text_fr": "Selon la foire aux questions de l'OQLF, l'auteur d'un manquement à la Charte qui refuse de le corriger est passible d'une amende de 700 $ à 7 000 $ (personne physique) ou de 3 000 $ à 30 000 $ (personne morale), le double pour une première récidive et le triple pour toute récidive additionnelle. L'OQLF ne donne pas de constat d'infraction et n'impose pas d'amende : le DPCP a ce pouvoir et les tribunaux imposent les amendes.",
+   "source": "OQLF-FAQ",
+   "quote": {
+    "lang": "fr",
+    "text": "L’auteur du manquement est passible d’une amende de 700 $ à 7 000 $ dans le cas d’une personne physique et de 3 000 $ à 30 000 $ dans le cas d’une personne morale."
+   }
+  },
+  {
+   "id": "F-OUTSIDE",
+   "text_en": "The OQLF states that the Charter applies to any business or employer that carries on activities in Québec, even temporarily.",
+   "text_fr": "L'OQLF indique que la Charte s'applique à toute entreprise ou à tout employeur qui exerce ses activités au Québec, même de façon temporaire.",
+   "source": "OQLF-FAQ",
+   "quote": {
+    "lang": "fr",
+    "text": "La Charte s’applique à toute entreprise ou à tout employeur qui exerce ses activités au Québec, même de façon temporaire."
+   }
+  },
+  {
+   "id": "F-FICHE-NOLEGAL",
+   "text_en": "The OQLF's own fiche on websites says its content has no legal value; the binding text is the Charter.",
+   "text_fr": "La fiche de l'OQLF sur les sites Web indique elle-même que son contenu n'a aucune valeur légale; le texte qui lie est la Charte.",
+   "source": "OQLF-FICHE",
+   "quote": {
+    "lang": "fr",
+    "text": "Le contenu de cette fiche n’a aucune valeur légale."
+   }
+  },
+  {
+   "id": "F-OTTIAQ",
+   "text_en": "The OTTIAQ (the Québec order of translators, terminologists and interpreters) calls on its members to integrate automated translation tools into an OTTIAQ-approved process, which must always include at least one round of quality control by a professional, and says that whenever there are real-world consequences, a language professional should be involved. This is a professional order's position, not a legal requirement.",
+   "text_fr": "L'OTTIAQ (Ordre des traducteurs, terminologues et interprètes agréés du Québec) invite ses membres à intégrer les outils de traduction automatique à un processus approuvé par l'OTTIAQ, qui doit toujours comprendre au moins une étape de contrôle de la qualité par un professionnel, et estime que, chaque fois que la traduction a des conséquences concrètes, un professionnel de la langue devrait intervenir. Il s'agit de la position d'un ordre professionnel, pas d'une exigence légale.",
+   "source": "OTTIAQ",
+   "quote": {
+    "lang": "en",
+    "text": "whenever there are real-world consequences, a language professional should be involved."
+   },
+   "quote2": {
+    "lang": "en",
+    "text": "which must always include at least one round of quality control by a professional"
+   }
+  },
+  {
+   "id": "F-BILL96",
+   "text_en": "\"Bill 96\" is the National Assembly's name for An Act respecting French, the official and common language of Québec, assented to on 1 June 2022 (chapter 14 of the Statutes of Québec, 2022). The Charter of the French language is the text to read for the rules listed here.",
+   "text_fr": "Le « projet de loi 96 » est le nom donné par l'Assemblée nationale à la Loi sur la langue officielle et commune du Québec, le français, sanctionnée le 1er juin 2022 (chapitre 14 des Lois du Québec de 2022). La Charte de la langue française est le texte à consulter pour les règles énumérées ici.",
+   "source": "NA-BILL96",
+   "quote": {
+    "lang": "en",
+    "text": "Date of assent: June 1, 2022 Chapter in the annual volume of the Statutes of Québec: 2022, chapitre 14"
+   }
+  }
+ ],
+ "lang_words": {
+  "fr": [
+   "le",
+   "la",
+   "les",
+   "des",
+   "du",
+   "et",
+   "est",
+   "que",
+   "qui",
+   "dans",
+   "pour",
+   "sur",
+   "avec",
+   "par",
+   "aux",
+   "cette",
+   "nous",
+   "vous",
+   "votre",
+   "vos",
+   "notre",
+   "nos",
+   "pas",
+   "ne",
+   "une",
+   "un",
+   "ces",
+   "sont",
+   "ou"
+  ],
+  "en": [
+   "the",
+   "and",
+   "of",
+   "to",
+   "is",
+   "for",
+   "with",
+   "your",
+   "our",
+   "you",
+   "this",
+   "that",
+   "are",
+   "from",
+   "by",
+   "not",
+   "be",
+   "it",
+   "we",
+   "will",
+   "can",
+   "all",
+   "have",
+   "has"
+  ]
+ },
+ "ui_strings": {
+  "fr": [
+   "ajouter au panier",
+   "panier",
+   "passer à la caisse",
+   "paiement",
+   "commander",
+   "livraison",
+   "retours",
+   "conditions de vente",
+   "politique de confidentialité",
+   "expédition",
+   "rechercher",
+   "connexion",
+   "mon compte"
+  ],
+  "en": [
+   "add to cart",
+   "add to bag",
+   "cart",
+   "checkout",
+   "check out",
+   "payment",
+   "shipping",
+   "returns",
+   "terms of service",
+   "terms and conditions",
+   "privacy policy",
+   "search",
+   "log in",
+   "sign in",
+   "my account"
+  ]
+ }
+}
