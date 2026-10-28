@@ -6,7 +6,7 @@ Run order:  python3 gen.py && python3 guides_gen.py   (safe to re-run)
 """
 import json, os, html, re, sys
 from guides_lib import *
-from brand_head import head_extra
+from brand_head import head_extra, more_tools
 import guides_lib
 # ---------------- page shell ----------------
 STYLE = """<style>.callout{background:#eef8f6;border-left:5px solid #2A9D8F;padding:.7rem 1rem;margin:1rem 0;border-radius:0 8px 8px 0}
@@ -19,7 +19,7 @@ table.num td:not(:first-child),table.num th:not(:first-child){text-align:right}<
 def nav_html(lang):
     return ('<nav><a href="/tfsa-contribution-room-calculator/">TFSA</a><a href="/fhsa-contribution-room-calculator/">FHSA</a><a href="/rrsp-tax-refund-calculator/">RRSP</a>'
             '<a href="/self-employed-tax-calculator/">Self-employed tax</a><a href="/freelancer-tax-set-aside-calculator/">Set-aside</a><a href="/impot-travailleur-autonome-quebec/">Québec</a>'
-            '<a href="/homebrew-calculator/">Homebrew</a><a href="/guides/">Guides</a></nav>')
+            '<a href="/1099-self-employment-tax-calculator/">US tax</a><a href="/guides/">Guides</a></nav>')
 
 def shell(path, title, desc, body, lang, ld, alt=None):
     from seo_meta import meta as _meta
@@ -36,7 +36,7 @@ def shell(path, title, desc, body, lang, ld, alt=None):
 <meta property="og:title" content="{e(title)}"><meta property="og:description" content="{e(desc)}"><meta property="og:url" content="{url}"><meta property="og:type" content="article"><meta property="og:site_name" content="{BRAND}">
 <meta name="theme-color" content="#1F3A5F"><link rel="stylesheet" href="/assets/style.css">{STYLE}{head_extra(path)}{ldj}</head>
 <body><header class="top"><div class="w"><a class="brand" href="/">North<span>Ledger</span> Tools</a>{nav_html(lang)}</div></header><main class="w">{body}</main>
-<footer><div class="w">{foot} · <a href="/privacy/">{"Confidentialité" if lang == "fr" else "Privacy"}</a> · {"Mis à jour le" if lang == "fr" else "Updated"} {UPD}</div></footer></body></html>'''
+<footer><div class="w">{foot} · <a href="/privacy/">{"Confidentialité" if lang == "fr" else "Privacy"}</a>{more_tools(lang, path)} · {"Mis à jour le" if lang == "fr" else "Updated"} {UPD}</div></footer></body></html>'''
     os.makedirs(path, exist_ok=True)
     open(os.path.join(path, "index.html"), "w").write(doc)
 
@@ -170,8 +170,8 @@ def postprocess():
         if "index.html" not in files: continue
         p = os.path.join(dirpath, "index.html")
         s = open(p).read(); o = s
-        if '<a href="/guides/">Guides</a>' not in s and '<a href="/homebrew-calculator/">Homebrew</a></nav>' in s:
-            s = s.replace('<a href="/homebrew-calculator/">Homebrew</a></nav>', '<a href="/homebrew-calculator/">Homebrew</a><a href="/guides/">Guides</a></nav>')
+        if '<a href="/guides/">Guides</a>' not in s and '<a href="/1099-self-employment-tax-calculator/">US tax</a></nav>' in s:
+            s = s.replace('<a href="/1099-self-employment-tax-calculator/">US tax</a></nav>', '<a href="/1099-self-employment-tax-calculator/">US tax</a><a href="/guides/">Guides</a></nav>')
         key = os.path.relpath(dirpath, ".").strip("./")
         keys = list(CALC_LINKS.get(key, [])) + list(US_LINKS.get(key, []))
         if keys:

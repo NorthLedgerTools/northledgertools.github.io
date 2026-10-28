@@ -6,14 +6,17 @@ def app_ld(name,url,desc,cat="FinanceApplication",lang="en-CA",cur="CAD"):
     return {"@type":"WebApplication","name":name,"url":url,"description":desc,"applicationCategory":cat,"operatingSystem":"Any (web browser)","inLanguage":lang,
             "isAccessibleForFree":True,"offers":{"@type":"Offer","price":"0","priceCurrency":cur},"publisher":{"@type":"Organization","name":BRAND,"url":BASE}}
 from seo_meta import meta as _meta
-from brand_head import head_extra, ICON_LINKS
+from brand_head import head_extra, ICON_LINKS, more_tools
+LOW_PRIORITY={"homebrew-calculator/"}  # demoted 2026-10-28: stays live and indexable, lower sitemap priority
+PRIVACY_NAV='<nav><a href="/tfsa-contribution-room-calculator/">TFSA</a><a href="/fhsa-contribution-room-calculator/">FHSA</a><a href="/rrsp-tax-refund-calculator/">RRSP</a><a href="/self-employed-tax-calculator/">Self-employed tax</a><a href="/freelancer-tax-set-aside-calculator/">Set-aside</a><a href="/impot-travailleur-autonome-quebec/">Québec</a><a href="/1099-self-employment-tax-calculator/">US tax</a><a href="/homebrew-calculator/">Homebrew</a><a href="/guides/">Guides</a></nav>'
 def page(path,title,desc,body,lang="en",ld=None,alt=None,script="",extra="",upd=None,loc=None,libs=""):
     title,desc=_meta(path,title,desc)
     url=BASE+path; L=loc or ("fr-CA" if lang=="fr" else "en-CA")
     hl="".join(f'<link rel="alternate" hreflang="{h}" href="{BASE+p}">' for h,p in (alt or []))
     if alt: hl+=f'<link rel="alternate" hreflang="x-default" href="{BASE+[p for h,p in alt if h.startswith("en")][0]}">'
     ldj=f'<script type="application/ld+json">{json.dumps({"@context":"https://schema.org","@graph":ld},ensure_ascii=False)}</script>' if ld else ""
-    nav=('<nav><a href="/tfsa-contribution-room-calculator/">TFSA</a><a href="/fhsa-contribution-room-calculator/">FHSA</a><a href="/rrsp-tax-refund-calculator/">RRSP</a><a href="/self-employed-tax-calculator/">Self-employed tax</a><a href="/freelancer-tax-set-aside-calculator/">Set-aside</a><a href="/impot-travailleur-autonome-quebec/">Québec</a><a href="/1099-self-employment-tax-calculator/">US tax</a><a href="/homebrew-calculator/">Homebrew</a></nav>')
+    nav=('<nav><a href="/tfsa-contribution-room-calculator/">TFSA</a><a href="/fhsa-contribution-room-calculator/">FHSA</a><a href="/rrsp-tax-refund-calculator/">RRSP</a><a href="/self-employed-tax-calculator/">Self-employed tax</a><a href="/freelancer-tax-set-aside-calculator/">Set-aside</a><a href="/impot-travailleur-autonome-quebec/">Québec</a><a href="/1099-self-employment-tax-calculator/">US tax</a></nav>')
+    if path=="privacy/": nav=PRIVACY_NAV  # frozen: privacy page output kept byte-identical (Tempus: do not touch the privacy policy)
     foot=("Fait au Canada. Aucun suivi, aucun témoin, aucune publicité. Les calculs se font dans votre navigateur." if lang=="fr" else
           "Made in Canada. No tracking, no cookies, no ads. Calculations run in your browser; nothing you type is sent anywhere.")
     doc=f'''<!doctype html><html lang="{L}"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
@@ -21,7 +24,7 @@ def page(path,title,desc,body,lang="en",ld=None,alt=None,script="",extra="",upd=
 <meta property="og:title" content="{html.escape(title)}"><meta property="og:description" content="{html.escape(desc)}"><meta property="og:url" content="{url}"><meta property="og:type" content="website"><meta property="og:site_name" content="{BRAND}">
 <meta name="theme-color" content="#1F3A5F">{extra}<link rel="stylesheet" href="/assets/style.css">{head_extra(path)}{ldj}</head>
 <body><header class="top"><div class="w"><a class="brand" href="/">North<span>Ledger</span> Tools</a>{nav}</div></header><main class="w">{body}</main>
-<footer><div class="w">{foot} · <a href="/privacy/">{"Confidentialité" if lang=="fr" else "Privacy"}</a> · {"Mis à jour le" if lang=="fr" else "Updated"} {upd or UPD}</div></footer>
+<footer><div class="w">{foot} · <a href="/privacy/">{"Confidentialité" if lang=="fr" else "Privacy"}</a>{more_tools(lang,path)} · {"Mis à jour le" if lang=="fr" else "Updated"} {upd or UPD}</div></footer>
 <script src="/assets/engine.js"></script>{libs}{script}</body></html>'''
     os.makedirs(path or ".",exist_ok=True); open(os.path.join(path,"index.html") if path else "index.html","w").write(doc)
 def faqhtml(faq,h="Frequently asked questions"): return f"<h2>{h}</h2>"+"".join(f"<details><summary>{html.escape(q)}</summary><p>{html.escape(a)}</p></details>" for q,a in faq)
@@ -449,11 +452,11 @@ body=f'''<h1>Free, accurate Canadian money calculators</h1><p class="lede">Simpl
 <a href="/uk-vat-calculator/"><b>UK VAT calculator 2026 (GBP)</b>Add or remove 20%, 5% or 0% VAT and find your VAT registration date.</a>
 <a href="/vat-flat-rate-scheme-calculator/"><b>UK VAT Flat Rate Scheme 2026 (GBP)</b>Sector rates and the 16.5% limited cost test against standard accounting.</a>
 <a href="/impot-travailleur-autonome-ontario-cb-alberta/" hreflang="fr-CA"><b>Impôt travailleur autonome 2026 (Ontario, C.-B., Alberta)</b>Impôt fédéral et provincial et RPC/RPC2.</a>
-<a href="/homebrew-calculator/"><b>Homebrew: ABV, IBU, priming</b>Hobby brewing calculators in metric or US units.</a></div>
+</div>
 <h2>About</h2><p>NorthLedger Tools makes calculators and spreadsheets that show their work. Each free calculator here uses the same formulas as the matching NorthLedger spreadsheet, which adds year-round logging and tracking. You can find them on <a href="https://northledgertools.gumroad.com/">our Gumroad store</a>. Rates are updated when governments publish new figures, normally each January.</p>
 <p class="disc">These tools give estimates, not tax or financial advice. The Canada Revenue Agency and Revenu Québec are the official sources for your own situation.</p>'''
 page("","NorthLedger Tools: Free Canadian TFSA and Self-Employed Tax Calculators 2026",
- "Free, ad-free calculators for Canadians: TFSA, FHSA and RRSP 2026, freelancer tax set-aside and instalments, self-employed tax for Ontario, BC, Alberta and Quebec, plus homebrew calculators.",
+ "Free, ad-free calculators for Canadians: TFSA, FHSA and RRSP 2026, freelancer tax set-aside and instalments, self-employed tax for Ontario, BC, Alberta and Quebec, plus US and UK tools.",
  body,extra='<meta name="google-site-verification" content="bgydH5GCEgFakbRT0gUBnsEbqirokCbZlFyL7epcgsk" /><meta name="google-site-verification" content="NMIoLmLE4MjwpZiBJ10qdWgRSTdVe_NgjuytyJ4b114" />',ld=[{"@type":"WebSite","name":BRAND,"url":BASE,"inLanguage":"en-CA"},{"@type":"Organization","name":BRAND,"url":BASE}],upd=NEWUPD)
 body='''<h1>Privacy policy</h1><p><b>Effective October 12, 2026.</b></p>
 <p>NorthLedger Tools ("we") runs this website as a set of static pages hosted on GitHub Pages.</p>
@@ -466,7 +469,7 @@ page("privacy/","Privacy Policy | NorthLedger Tools","NorthLedger Tools collects
 # sitemap etc
 paths=["","tfsa-contribution-room-calculator/","fhsa-contribution-room-calculator/","calcul-droits-celiapp/","self-employed-tax-calculator/","impot-travailleur-autonome-quebec/","quebec-self-employed-tax-calculator/","rrsp-tax-refund-calculator/","calcul-remboursement-reer/","freelancer-tax-set-aside-calculator/","acomptes-provisionnels-travailleur-autonome-quebec/","quebec-tax-instalments-calculator/","calcul-droits-celi/","1099-self-employment-tax-calculator/","texas-paycheck-calculator/","california-paycheck-calculator/","uk-vat-calculator/","vat-flat-rate-scheme-calculator/","impot-travailleur-autonome-ontario-cb-alberta/","homebrew-calculator/","privacy/"]
 NEWP={"","tfsa-contribution-room-calculator/","calcul-droits-celi/","1099-self-employment-tax-calculator/","texas-paycheck-calculator/","self-employed-tax-calculator/","california-paycheck-calculator/","uk-vat-calculator/","vat-flat-rate-scheme-calculator/","impot-travailleur-autonome-ontario-cb-alberta/"}
-open("sitemap.xml","w").write('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'+"".join(f"<url><loc>{BASE+p}</loc><lastmod>{NEWUPD}</lastmod></url>\n" for p in paths)+"</urlset>\n")
+open("sitemap.xml","w").write('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'+"".join(f"<url><loc>{BASE+p}</loc><lastmod>{NEWUPD}</lastmod>"+('<priority>0.3</priority>' if p in LOW_PRIORITY else "")+"</url>\n" for p in paths)+"</urlset>\n")
 bots=["Googlebot","Bingbot","OAI-SearchBot","ChatGPT-User","GPTBot","PerplexityBot","Perplexity-User","ClaudeBot","Claude-SearchBot","Google-Extended","Applebot","Applebot-Extended","DuckDuckBot","CCBot"]
 open("robots.txt","w").write("".join(f"User-agent: {b}\nAllow: /\n\n" for b in bots)+"User-agent: *\nAllow: /\n\nSitemap: "+BASE+"sitemap.xml\n")
 open("llms.txt","w").write(f"""# NorthLedger Tools
@@ -492,13 +495,11 @@ open("llms.txt","w").write(f"""# NorthLedger Tools
 - [UK VAT Calculator 2026]({BASE}uk-vat-calculator/): add or remove VAT at 20%, 5% and 0%; VAT registration deadline and effective date from the £90,000 threshold rules.
 - [VAT Flat Rate Scheme Calculator 2026 (UK)]({BASE}vat-flat-rate-scheme-calculator/): HMRC sector flat rates, 16.5% limited cost test and 1% first-year discount compared with standard VAT accounting.
 - [Calcul impôt travailleur autonome 2026, Ontario / C.-B. / Alberta]({BASE}impot-travailleur-autonome-ontario-cb-alberta/) ([English]({BASE}self-employed-tax-calculator/)): federal + provincial tax and RPC/RPC2.
-- [Homebrew calculator]({BASE}homebrew-calculator/): ABV (OG−FG)×131.25, IBU (Tinseth), SRM (Morey), priming sugar.
 
 ## Paid spreadsheets (Excel / Google Sheets / LibreOffice)
 - [Canadian Contribution Room Tracker 2026 (TFSA, RRSP, FHSA)]({G}pdxqug): CA$14
 - [Self-Employed Tax Estimator 2026 (ON, BC, AB)]({G}bblrt): CA$17
 - [Quebec Self-Employed Tax Estimator 2026 (bilingual)]({G}oymrg): CA$17
-- [Homebrew Recipe & Priming Calculator]({G}vglxwa): CA$9
 - [Mileage Log & Tracker 2026-2027 (IRS rate by trip date + Canada CRA method)]({G}bzofli): CA$10.99
 
 ## Policies

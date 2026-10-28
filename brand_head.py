@@ -26,3 +26,10 @@ def head_extra(path):
     if path == "privacy/":
         return OLD_ICON
     return SOCIAL_META + ICON_LINKS
+
+
+def more_tools(lang, path):
+    """Low-key site-wide footer link to the demoted extra tools (homebrew) so they are not orphaned. Privacy page stays byte-identical."""
+    if path == "privacy/":
+        return ""
+    return ' · <a href="/homebrew-calculator/"%s>%s</a>' % ((' hreflang="en-CA"', "Plus d'outils (en anglais)") if lang == "fr" else ("", "More tools"))

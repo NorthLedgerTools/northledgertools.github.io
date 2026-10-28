@@ -21,7 +21,6 @@
 - [UK VAT Calculator 2026](https://northledgertools.com/uk-vat-calculator/): add or remove VAT at 20%, 5% and 0%; VAT registration deadline and effective date from the £90,000 threshold rules.
 - [VAT Flat Rate Scheme Calculator 2026 (UK)](https://northledgertools.com/vat-flat-rate-scheme-calculator/): HMRC sector flat rates, 16.5% limited cost test and 1% first-year discount compared with standard VAT accounting.
 - [Calcul impôt travailleur autonome 2026, Ontario / C.-B. / Alberta](https://northledgertools.com/impot-travailleur-autonome-ontario-cb-alberta/) ([English](https://northledgertools.com/self-employed-tax-calculator/)): federal + provincial tax and RPC/RPC2.
-- [Homebrew calculator](https://northledgertools.com/homebrew-calculator/): ABV (OG−FG)×131.25, IBU (Tinseth), SRM (Morey), priming sugar.
 
 ## Guides (worked examples, each figure sourced)
 - [TFSA over-contribution penalty: how the 1% a month is calculated](https://northledgertools.com/guides/tfsa-over-contribution-penalty/): The 1% monthly tax, the CRA's own examples, a cost-of-delay table and how to fix it.
@@ -44,7 +43,6 @@
 - [Canadian Contribution Room Tracker 2026 (TFSA, RRSP, FHSA)](https://northledgertools.gumroad.com/l/pdxqug): CA$14
 - [Self-Employed Tax Estimator 2026 (ON, BC, AB)](https://northledgertools.gumroad.com/l/bblrt): CA$17
 - [Quebec Self-Employed Tax Estimator 2026 (bilingual)](https://northledgertools.gumroad.com/l/oymrg): CA$17
-- [Homebrew Recipe & Priming Calculator](https://northledgertools.gumroad.com/l/vglxwa): CA$9
 - [Mileage Log & Tracker 2026-2027 (IRS rate by trip date + Canada CRA method)](https://northledgertools.gumroad.com/l/bzofli): CA$10.99
 
 ## Policies

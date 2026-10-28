@@ -2,8 +2,8 @@
 # primary keyword first, no brand suffix on inner pages. Keyed by page path. Applied in gen.page() and guides_gen.shell().
 # Every claim here is copied from the page's own existing title/description (no new figures).
 META = {
-"": ("NorthLedger Tools: Free Canadian Tax Calculators 2026",
-     "Free, ad-free calculators for Canadians: TFSA, FHSA and RRSP 2026, freelancer tax set-aside and instalments, self-employed tax (ON, BC, AB, QC), plus homebrew."),
+"": ("Free Canadian Tax & TFSA Calculators 2026 | NorthLedger",
+     "Free tax calculators for Canadians: TFSA, FHSA and RRSP 2026, freelancer tax set-aside, instalments, self-employed tax (ON, BC, AB, QC), plus US and UK tools."),
 "tfsa-contribution-room-calculator/": ("TFSA Contribution Room Calculator 2026 (Year by Year)",
      "Free TFSA room calculator for 2026: enter your birth year and contributions to see your room left, year by year from 2009 using CRA limits ($7,000 for 2026)."),
 "fhsa-contribution-room-calculator/": ("FHSA Contribution Room Calculator 2026 (Carry-Forward)",

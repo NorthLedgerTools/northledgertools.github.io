@@ -90,7 +90,7 @@ def tools_json():
         l=re.search(r'<html lang="([^"]+)"',s).group(1)
         return {"name":t,"url":"https://northledgertools.com/"+p,"description":d,"language":l}
     sm=open("sitemap.xml").read(); paths=[u.replace("https://northledgertools.com/","") for u in re.findall(r"<loc>(.*?)</loc>",sm)]
-    skip={"","privacy/","guides/","guides-fr/"}
+    skip={"","privacy/","guides/","guides-fr/","homebrew-calculator/"}  # homebrew demoted 2026-10-28: live, not listed in the catalog
     tools=[info(p) for p in sorted(paths) if p not in skip and not p.startswith(("guides/","guides-fr/"))]
     guides=[info(p) for p in sorted(paths) if p.startswith(("guides/","guides-fr/")) and p not in skip]
     out={"site":"https://northledgertools.com","publisher":"NorthLedger Tools","pricing":"free, no sign-in, no ads","privacy":"calculations run in the browser (see /privacy/)",
