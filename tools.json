@@ -142,6 +142,12 @@
    "language": "fr-CA"
   },
   {
+   "name": "Acomptes provisionnels : dates, seuil et calendrier",
+   "url": "https://northledgertools.com/guides-fr/calendrier-acomptes-provisionnels/",
+   "description": "Les quatre dates (15 mars, 15 juin, 15 septembre, 15 décembre), le seuil de 1 800 $ au Québec, les rappels de février et d'août.",
+   "language": "fr-CA"
+  },
+  {
    "name": "CELIAPP et RAP : utiliser les deux (règles de l'ARC, 2026)",
    "url": "https://northledgertools.com/guides-fr/celiapp-et-regime-d-accession-a-la-propriete/",
    "description": "Comment le CELIAPP et le Régime d'accession à la propriété (REER) se combinent : 8 000 $ par an, 40 000 $ à vie, retrait admissible, RAP de 60 000 $.",
@@ -172,6 +178,12 @@
    "language": "fr-CA"
   },
   {
+   "name": "Facture du travailleur autonome : TPS, TVQ et inscription",
+   "url": "https://northledgertools.com/guides-fr/facture-travailleur-autonome-tps-tvq/",
+   "description": "Renseignements à faire figurer sur une facture selon le montant (moins de 100 $, 100 à 499,99 $, 500 $ ou plus) et seuil de petit fournisseur de 30 000 $.",
+   "language": "fr-CA"
+  },
+  {
    "name": "Impôt du Québec 2026 : tranches et taux d'imposition",
    "url": "https://northledgertools.com/guides-fr/impot-quebec-2026-tranches-et-taux/",
    "description": "Les quatre tranches d'imposition 2026 de Revenu Québec (14 %, 19 %, 24 %, 25,75 %), comparées à 2025, avec un calcul par tranche pour 70 000 $.",
@@ -187,6 +199,12 @@
    "name": "RAP : retirer de son REER pour une première habitation",
    "url": "https://northledgertools.com/guides-fr/rap-retirer-du-reer-premiere-habitation/",
    "description": "Limite de 60 000 $, remboursement sur 15 ans qui commence la 5e année pour un premier retrait en 2026-2028, première habitation et démarches (T1036, annexe 7).",
+   "language": "fr-CA"
+  },
+  {
+   "name": "Retrait CELI : quand vos droits de cotisation reviennent",
+   "url": "https://northledgertools.com/guides-fr/retrait-celi-droits-de-cotisation/",
+   "description": "Un retrait CELI n'augmente pas vos droits tout de suite : il s'ajoute le 1er janvier suivant. Exemple chiffré de l'ARC et vérification.",
    "language": "fr-CA"
   },
   {

@@ -47,7 +47,10 @@
 - [Régime d'accession à la propriété (RAP) : retirer de son REER pour acheter](https://northledgertools.com/guides-fr/rap-retirer-du-reer-premiere-habitation/): La limite de 60 000 $, la période de remboursement de 15 ans et les conditions.
 - [Travailleur autonome au Québec : comment déclarer ses revenus d'entreprise](https://northledgertools.com/guides-fr/declarer-revenus-travailleur-autonome-quebec/): Les dates limites, les formulaires TP-80 et T2125 et les étapes à suivre.
 - [Plafond CELI par année : le tableau de 2009 à 2026](https://northledgertools.com/guides-fr/plafond-celi-par-annee/): Le tableau officiel de l'ARC, la règle d'indexation et le cumul depuis 2009.
+- [Acomptes provisionnels : le calendrier, le seuil et les rappels](https://northledgertools.com/guides-fr/calendrier-acomptes-provisionnels/): Les quatre dates, le seuil de 1 800 $ et le calendrier des rappels.
+- [Retrait CELI : quand récupérez-vous vos droits de cotisation?](https://northledgertools.com/guides-fr/retrait-celi-droits-de-cotisation/): Les droits reviennent le 1er janvier suivant : l'exemple de l'ARC et une méthode de vérification.
 - [RQAP du travailleur autonome en 2026 : taux, maximum et exemples](https://northledgertools.com/guides-fr/rqap-travailleur-autonome-2026/): Le taux de 0,764 %, le maximum de 786,92 $ et deux exemples.
+- [Facture du travailleur autonome : TPS, TVQ et inscription aux fichiers](https://northledgertools.com/guides-fr/facture-travailleur-autonome-tps-tvq/): Les renseignements sur la facture, selon le montant, et le seuil de petit fournisseur de 30 000 $ : ce qu'il compte et quand il faut s'inscrire.
 
 ## Paid spreadsheets (Excel / Google Sheets / LibreOffice)
 - [Canadian Contribution Room Tracker 2026 (TFSA, RRSP, FHSA)](https://northledgertools.gumroad.com/l/pdxqug): CA$14
