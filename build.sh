@@ -1,9 +1,0 @@
-#!/bin/sh
-# Full site build: calculators/home/sitemap (gen.py) then guides + post-processing (guides_gen.py). Safe to re-run.
-set -e
-cd "$(dirname "$0")"
-python3 gen.py
-python3 guides_gen.py
-python3 /workspace/products/07-bill96-localisation/site/bill96_gen.py --en-only
-python3 crosslinks.py
-node validation/rq_check.js
