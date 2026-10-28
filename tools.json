@@ -136,9 +136,21 @@
    "language": "fr-CA"
   },
   {
+   "name": "Calcul TPS et TVQ au Québec : taux et arrondi",
+   "url": "https://northledgertools.com/guides-fr/calcul-tps-tvq-quebec/",
+   "description": "Taux de 5 % et de 9,975 %, TVQ calculée sur le prix sans la TPS, règle d'arrondi de Revenu Québec et trois exemples chiffrés pour une facture.",
+   "language": "fr-CA"
+  },
+  {
    "name": "CELIAPP et RAP : utiliser les deux (règles de l'ARC, 2026)",
    "url": "https://northledgertools.com/guides-fr/celiapp-et-regime-d-accession-a-la-propriete/",
    "description": "Comment le CELIAPP et le Régime d'accession à la propriété (REER) se combinent : 8 000 $ par an, 40 000 $ à vie, retrait admissible, RAP de 60 000 $.",
+   "language": "fr-CA"
+  },
+  {
+   "name": "CELIAPP : plafond annuel, report et durée du compte",
+   "url": "https://northledgertools.com/guides-fr/celiapp-plafond-report-et-duree/",
+   "description": "Droits de participation de 8 000 $ la première année, report des droits, formule avec 40 000 $ et fin de la période de participation, d'après l'ARC.",
    "language": "fr-CA"
   },
   {
@@ -151,6 +163,36 @@
    "name": "REER : plafond de déduction 2026 et 2027, date limite",
    "url": "https://northledgertools.com/guides-fr/date-limite-reer-et-plafond-de-cotisation/",
    "description": "Votre plafond REER est 18 % du revenu gagné de l'an dernier, jusqu'à 33 810 $ pour 2026 (35 390 $ pour 2027). Date limite, marge de 2 000 $, impôt de 1 %/mois.",
+   "language": "fr-CA"
+  },
+  {
+   "name": "Travailleur autonome au Québec : déclarer ses revenus",
+   "url": "https://northledgertools.com/guides-fr/declarer-revenus-travailleur-autonome-quebec/",
+   "description": "Dates limites (15 juin pour produire, 30 avril pour payer), formulaires TP-80 et T2125, registres et acomptes : les étapes selon Revenu Québec et l'ARC.",
+   "language": "fr-CA"
+  },
+  {
+   "name": "Impôt du Québec 2026 : tranches et taux d'imposition",
+   "url": "https://northledgertools.com/guides-fr/impot-quebec-2026-tranches-et-taux/",
+   "description": "Les quatre tranches d'imposition 2026 de Revenu Québec (14 %, 19 %, 24 %, 25,75 %), comparées à 2025, avec un calcul par tranche pour 70 000 $.",
+   "language": "fr-CA"
+  },
+  {
+   "name": "Plafond CELI par année : tableau de 2009 à 2026",
+   "url": "https://northledgertools.com/guides-fr/plafond-celi-par-annee/",
+   "description": "Plafond annuel du CELI année par année depuis 2009 (7 000 $ en 2026), règle d'indexation et pourquoi vos droits personnels peuvent différer.",
+   "language": "fr-CA"
+  },
+  {
+   "name": "RAP : retirer de son REER pour une première habitation",
+   "url": "https://northledgertools.com/guides-fr/rap-retirer-du-reer-premiere-habitation/",
+   "description": "Limite de 60 000 $, remboursement sur 15 ans qui commence la 5e année pour un premier retrait en 2026-2028, première habitation et démarches (T1036, annexe 7).",
+   "language": "fr-CA"
+  },
+  {
+   "name": "RQAP du travailleur autonome en 2026 : taux et maximum",
+   "url": "https://northledgertools.com/guides-fr/rqap-travailleur-autonome-2026/",
+   "description": "Taux de 0,764 % et cotisation maximale de 786,92 $ en 2026 pour les travailleurs autonomes, comparés à 2025, avec deux exemples de calcul.",
    "language": "fr-CA"
   },
   {

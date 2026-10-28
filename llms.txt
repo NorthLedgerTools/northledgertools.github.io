@@ -41,6 +41,13 @@
 - [CELIAPP et RAP : peut-on utiliser les deux pour la même propriété?](https://northledgertools.com/guides-fr/celiapp-et-regime-d-accession-a-la-propriete/): Deux programmes, une propriété : plafonds, conditions et pièges de remboursement.
 - [REER : plafond de cotisation, date limite et marge de 2 000 $](https://northledgertools.com/guides-fr/date-limite-reer-et-plafond-de-cotisation/): Comment les droits se calculent, plafonds 2026 et 2027, et quand l'excédent coûte de l'argent.
 - [Surcotisation au CELI : comment fonctionne le 1 % par mois](https://northledgertools.com/guides-fr/surcotisation-celi/): L'impôt de 1 % par mois, les exemples de l'ARC, le coût du retard et la marche à suivre.
+- [CELIAPP : plafond annuel, report des droits et durée du compte](https://northledgertools.com/guides-fr/celiapp-plafond-report-et-duree/): 8 000 $ la première année, le report des droits et la fin de la période de participation.
+- [Calcul de la TPS et de la TVQ au Québec : taux, méthode et arrondi](https://northledgertools.com/guides-fr/calcul-tps-tvq-quebec/): Taux de 5 % et de 9,975 %, ordre de calcul, règle d'arrondi et exemples.
+- [Impôt du Québec en 2026 : tranches et taux d'imposition](https://northledgertools.com/guides-fr/impot-quebec-2026-tranches-et-taux/): Les quatre tranches 2026, la comparaison avec 2025 et un calcul par tranche.
+- [Régime d'accession à la propriété (RAP) : retirer de son REER pour acheter](https://northledgertools.com/guides-fr/rap-retirer-du-reer-premiere-habitation/): La limite de 60 000 $, la période de remboursement de 15 ans et les conditions.
+- [Travailleur autonome au Québec : comment déclarer ses revenus d'entreprise](https://northledgertools.com/guides-fr/declarer-revenus-travailleur-autonome-quebec/): Les dates limites, les formulaires TP-80 et T2125 et les étapes à suivre.
+- [Plafond CELI par année : le tableau de 2009 à 2026](https://northledgertools.com/guides-fr/plafond-celi-par-annee/): Le tableau officiel de l'ARC, la règle d'indexation et le cumul depuis 2009.
+- [RQAP du travailleur autonome en 2026 : taux, maximum et exemples](https://northledgertools.com/guides-fr/rqap-travailleur-autonome-2026/): Le taux de 0,764 %, le maximum de 786,92 $ et deux exemples.
 
 ## Paid spreadsheets (Excel / Google Sheets / LibreOffice)
 - [Canadian Contribution Room Tracker 2026 (TFSA, RRSP, FHSA)](https://northledgertools.gumroad.com/l/pdxqug): CA$14
