@@ -21,6 +21,7 @@
 
   function esc(s) { return String(s).replace(/[&<>"']/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]; }); }
   var D = JSON.parse(document.getElementById("b96-data").textContent), U = D.ui;
+  var NB = D.lang === "fr" ? "\u00a0" : " ";  // non-breaking space inside guillemets in French (OQLF)
   var $ = function (id) { return document.getElementById(id); };
   var lastText = "";
   (function () { var d = new Date(); D.today = d.getFullYear() + "-" + ("0" + (d.getMonth() + 1)).slice(-2) + "-" + ("0" + d.getDate()).slice(-2); })();
@@ -52,7 +53,7 @@
           t.push("   " + U.sources + " " + r.sources.map(function (s) { return s.label + " <" + s.url + ">"; }).join("; "));
           li += "<details><summary>" + esc(U.quotes) + "</summary>" + r.quotes.map(function (q) {
             return "<blockquote>" + esc(q.text) + "<br><span class=\"hint\">" + esc(q.src) + (q.note ? " — " + esc(q.note) : "") + "</span></blockquote>"; }).join("") + "</details>";
-          r.quotes.forEach(function (q) { t.push("   « " + q.text + " » (" + q.src + (q.note ? ", " + q.note : "") + ")"); });
+          r.quotes.forEach(function (q) { t.push("   «" + NB + q.text + NB + "» (" + q.src + (q.note ? ", " + q.note : "") + ")"); });
         }
         h.push(li + "</li>");
       });
