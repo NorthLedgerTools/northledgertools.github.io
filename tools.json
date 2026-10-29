@@ -218,6 +218,12 @@
    "language": "fr-CA"
   },
   {
+   "name": "RPC du travailleur autonome en 2026 : les deux parts, le RPC2 et la déduction (ligne 22200)",
+   "url": "https://northledgertools.com/guides-fr/rpc-travailleur-autonome-2026/",
+   "description": "Hors Québec, le travailleur autonome paie les deux parts du RPC : 11,9 % du revenu net entre 3 500 $ et 74 600 $, plus 8 % de RPC2 jusqu'à 85 000 $. Tableau des montants et partage entre déduction et crédit.",
+   "language": "fr-CA"
+  },
+  {
    "name": "RQAP du travailleur autonome en 2026 : taux et maximum",
    "url": "https://northledgertools.com/guides-fr/rqap-travailleur-autonome-2026/",
    "description": "Taux de 0,764 % et cotisation maximale de 786,92 $ en 2026 pour les travailleurs autonomes, comparés à 2025, avec deux exemples de calcul.",
@@ -251,6 +257,36 @@
    "name": "How We Check Our Numbers: 110 Official Figures",
    "url": "https://northledgertools.com/guides/how-we-check-our-numbers/",
    "description": "Our tax calculators are tested against 110 figures from Revenu Québec's published 2026 self-employed tables, with zero differences above $1. How it works.",
+   "language": "en-CA"
+  },
+  {
+   "name": "Freelancer Invoices in Quebec: GST, QST and Registration",
+   "url": "https://northledgertools.com/guides/quebec-freelancer-invoice-gst-qst/",
+   "description": "What an invoice must show by amount (under $100, $100 to $499.99, $500 or more) and the $30,000 small supplier threshold, according to Revenu Québec.",
+   "language": "en-CA"
+  },
+  {
+   "name": "Calculating GST and QST in Quebec: Rates and Rounding",
+   "url": "https://northledgertools.com/guides/quebec-gst-qst-calculation/",
+   "description": "The 5% and 9.975% rates, QST calculated on the price without GST, Revenu Québec's rounding rule and three worked invoice examples.",
+   "language": "en-CA"
+  },
+  {
+   "name": "Quebec Income Tax 2026: Brackets and Rates",
+   "url": "https://northledgertools.com/guides/quebec-income-tax-brackets-2026/",
+   "description": "Revenu Québec's four 2026 tax brackets (14%, 19%, 24%, 25.75%), compared with 2025, with a bracket-by-bracket calculation for $70,000.",
+   "language": "en-CA"
+  },
+  {
+   "name": "Quebec Self-Employed Contributions in 2026: QPP, QPIP and the Health Services Fund",
+   "url": "https://northledgertools.com/guides/quebec-self-employed-contributions-2026/",
+   "description": "2026 rates and ceilings for the QPP (12.6%, maximum $9,791), QPIP (0.764%) and the Health Services Fund, with Revenu Québec's official table at eight income levels.",
+   "language": "en-CA"
+  },
+  {
+   "name": "Self-Employed in Quebec: Filing Your Tax Returns",
+   "url": "https://northledgertools.com/guides/quebec-self-employed-tax-return/",
+   "description": "Deadlines (June 15 to file, April 30 to pay), forms TP-80-V and T2125, record keeping and instalments: the steps according to Revenu Québec and the CRA.",
    "language": "en-CA"
   },
   {
