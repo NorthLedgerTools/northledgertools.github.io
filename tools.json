@@ -6,6 +6,16 @@
  "not_advice": "Planning tools, not tax advice.",
  "llms_txt": "https://northledgertools.com/llms.txt",
  "sitemap": "https://northledgertools.com/sitemap.xml",
+ "home_pages": [
+  {
+   "url": "https://northledgertools.com/",
+   "language": "en-CA"
+  },
+  {
+   "url": "https://northledgertools.com/fr/",
+   "language": "fr-CA"
+  }
+ ],
  "tools": [
   {
    "name": "1099 Self-Employment Tax Calculator 2026 (Quarterly)",

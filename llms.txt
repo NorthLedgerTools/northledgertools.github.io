@@ -4,6 +4,7 @@
 
 ## Start here
 - [Home page](https://northledgertools.com/): all calculators and guides.
+- [French home page](https://northledgertools.com/fr/): the French calculators and guides.
 - [All guides](https://northledgertools.com/guides/) and [guides en français](https://northledgertools.com/guides-fr/): worked examples with official sources.
 - [tools.json](https://northledgertools.com/tools.json): machine-readable catalog of every calculator and guide (name, URL, description, language).
 
